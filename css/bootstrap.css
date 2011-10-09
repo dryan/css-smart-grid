@@ -1,141 +1,154 @@
-/* Reset.less
- * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
- * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 
+ * Props to Eric Meyer (meyerweb.com) for his CSS reset file. 
+ */
 
+html,body{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,cite,code,del,dfn,em,img,q,s,samp,small,strike,strong,sub,sup,tt,var,dd,dl,dt,li,ol,ul,fieldset,form,label,legend,button,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;}
+table{border-collapse:collapse;border-spacing:0;}
+ol,ul{list-style:none;}
+q:before,q:after,blockquote:before,blockquote:after{content:"";}
+html{overflow-y:scroll;font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+a:focus{outline:thin dotted;}
+a:hover,a:active{outline:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+audio:not([controls]){display:none;}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+sup{top:-0.5em;}
+sub{bottom:-0.25em;}
+img{border:0;-ms-interpolation-mode:bicubic;}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}
+button,input{line-height:normal;*overflow:visible;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;}
+input[type="search"]{-webkit-appearance:textfield;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
+input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
+textarea{overflow:auto;vertical-align:top;}
+html,body{background-color:#ffffff;}
+body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;font-weight:normal;line-height:24px;color:#404040;}
+p{font-size:16px;font-weight:normal;line-height:24px;margin-bottom:12px;}p small{font-size:14px;color:#bfbfbf;}
+h1,h2,h3,h4,h5,h6{font-weight:bold;color:#404040;}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{color:#bfbfbf;}
+h1{margin-bottom:24px;font-size:30px;line-height:48px;}h1 small{font-size:18px;}
+h2{font-size:24px;line-height:48px;}h2 small{font-size:14px;}
+h3,h4,h5,h6{line-height:48px;}
+h3{font-size:18px;}h3 small{font-size:14px;}
+h4{font-size:16px;}h4 small{font-size:12px;}
+h5{font-size:14px;}
+h6{font-size:13px;color:#bfbfbf;text-transform:uppercase;}
+ul,ol{margin:0 0 24px 25px;}
+ul ul,ul ol,ol ol,ol ul{margin-bottom:0;}
+ul{list-style:disc;}
+ol{list-style:decimal;}
+li{line-height:24px;}
+ul.unstyled{list-style:none;margin-left:0;}
+dl{margin-bottom:24px;}dl dt,dl dd{line-height:24px;}
+dl dt{font-weight:bold;}
+dl dd{margin-left:12px;}
+hr{margin:20px 0 19px;border:0;border-bottom:1px solid #eee;}
+strong{font-style:inherit;font-weight:bold;}
+em{font-style:italic;font-weight:inherit;line-height:inherit;}
+.muted{color:#bfbfbf;}
+blockquote{margin-bottom:24px;border-left:5px solid #eee;padding-left:15px;}blockquote p{font-size:14px;font-weight:300;line-height:24px;margin-bottom:0;}
+blockquote small{display:block;font-size:12px;font-weight:300;line-height:24px;color:#bfbfbf;}blockquote small:before{content:'\2014 \00A0';}
+address{display:block;line-height:24px;margin-bottom:24px;}
+code,pre{padding:0 3px 2px;font-family:Monaco, Andale Mono, Courier New, monospace;font-size:12px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+code{background-color:#fee9cc;color:rgba(0, 0, 0, 0.75);padding:1px 3px;}
+pre{background-color:#f5f5f5;display:block;padding:11.5px;margin:0 0 24px;line-height:24px;font-size:12px;border:1px solid #ccc;border:1px solid rgba(0, 0, 0, 0.15);-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
 
-// ERIC MEYER RESET
-// --------------------------------------------------
-
-html, body { margin: 0; padding: 0; }
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: normal; font-style: normal; font-size: 100%; line-height: 1; font-family: inherit; }
-table { border-collapse: collapse; border-spacing: 0; }
-ol, ul { list-style: none; }
-q:before, q:after, blockquote:before, blockquote:after { content: ""; }
-
-
-// Normalize.css
-// Pulling in select resets form the normalize.css project
-// --------------------------------------------------
-
-// Display in IE6-9 and FF3
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-html {
-  overflow-y: scroll;
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-}
-// Focus states
-a:focus {
-  outline: thin dotted;
-}
-// Hover & Active
-a:hover,
-a:active {
-  outline: 0;
-}
-
-// Display in IE6-9 and FF3
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section {
-  display: block;
-}
-
-// Display block in IE6-9 and FF3
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-
-// Prevents modern browsers from displaying 'audio' without controls
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-audio:not([controls]) {
-    display: none;
-}
-
-// Prevents sub and sup affecting line-height in all browsers
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-
-// Img border in a's and image quality
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-img {
-    border: 0;
-    -ms-interpolation-mode: bicubic;
-}
-
-// Forms
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-
-// Font size in all browsers, margin changes, misc consistency
+/*
+ * from Skeleton <http://getskeleton.com/>
+ */
+a.button,
 button,
-input,
-select,
-textarea {
-  font-size: 100%;
-  margin: 0;
-  vertical-align: baseline;
-  *vertical-align: middle;
-}
-button,
-input {
-  line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
-  *overflow: visible; // Inner spacing ie IE6/7
-}
-button::-moz-focus-inner,
-input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
-  border: 0;
-  padding: 0;
-}
-button,
-input[type="button"],
+input[type="submit"],
 input[type="reset"],
-input[type="submit"] {
-  cursor: pointer; // Cursors on all buttons applied consistently
-  -webkit-appearance: button; // Style clicable inputs in iOS
+input[type="button"] {
+	background: #eee; /* Old browsers */
+	background: #eee -moz-linear-gradient(top, rgba(255,255,255,.2) 0%, rgba(0,0,0,.2) 100%); /* FF3.6+ */
+	background: #eee -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.2)), color-stop(100%,rgba(0,0,0,.2))); /* Chrome,Safari4+ */
+	background: #eee -webkit-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* Chrome10+,Safari5.1+ */
+	background: #eee -o-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* Opera11.10+ */
+	background: #eee -ms-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* IE10+ */
+	background: #eee linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* W3C */
+  border: 1px solid #aaa;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  padding: 4px 12px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #444;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(255, 255, 255, .75);
+  cursor: pointer;
+  margin-bottom: 20px;
+  line-height: 21px;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+	a.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		color: #222;
+		background: #ddd; /* Old browsers */
+		background: #ddd -moz-linear-gradient(top, rgba(255,255,255,.3) 0%, rgba(0,0,0,.3) 100%); /* FF3.6+ */
+		background: #ddd -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.3)), color-stop(100%,rgba(0,0,0,.3))); /* Chrome,Safari4+ */
+		background: #ddd -webkit-linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* Chrome10+,Safari5.1+ */
+		background: #ddd -o-linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* Opera11.10+ */
+		background: #ddd -ms-linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* IE10+ */
+		background: #ddd linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* W3C */
+	  border: 1px solid #888;
+	  border-top: 1px solid #aaa;
+	  border-left: 1px solid #aaa; }
+
+	a.button:active,
+	button:active,
+	input[type="submit"]:active,
+	input[type="reset"]:active,
+	input[type="button"]:active {
+		border: 1px solid #666;
+		background: #ccc; /* Old browsers */
+		background: #ccc -moz-linear-gradient(top, rgba(255,255,255,.35) 0%, rgba(10,10,10,.4) 100%); /* FF3.6+ */
+		background: #ccc -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.35)), color-stop(100%,rgba(10,10,10,.4))); /* Chrome,Safari4+ */
+		background: #ccc -webkit-linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* Chrome10+,Safari5.1+ */
+		background: #ccc -o-linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* Opera11.10+ */
+		background: #ccc -ms-linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* IE10+ */
+		background: #ccc linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* W3C */ }
+
+	.button.full-width,
+	button.full-width,
+	input[type="submit"].full-width,
+	input[type="reset"].full-width,
+	input[type="button"].full-width {
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; }
+
+/*
+ * from HTML5 Boilerplate
+ */
+nav ul {
+    margin: 0;
+    padding: 0;
 }
-input[type="search"] { // Appearance in Safari/Chrome
-  -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+nav ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; // Inner-padding issues in Chrome OSX, Safari 5
+
+table th,
+table td {
+    vertical-align: middle;
+    padding: 0.5em;
+    border: 1px solid #666;
 }
-textarea {
-  overflow: auto; // Remove vertical scrollbar in IE6-9
-  vertical-align: top; // Readability and alignment cross-browser
+
+table th {
+    font-weight: bold;
+    text-align: center;
 }
