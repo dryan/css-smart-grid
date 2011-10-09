@@ -28,6 +28,132 @@
 }
 
 /*
+ * 960 fallback for IE
+ */
+.oldie .container {
+    width: 940px;
+}
+
+.oldie .column {
+    float: left;
+    width: 60px;
+    display: inline; /* fixes double margin bug */
+    margin-left: 20px;
+}
+
+.oldie .column.first,
+.oldie .column:first-child {
+    margin-left: 0;
+}
+
+.oldie .column.two {
+    width: 140px;
+}
+
+.oldie .column.three,
+.oldie .column.one-fourth {
+    width: 220px;
+}
+
+.oldie .column.four,
+.oldie .column.one-third {
+    width: 300px;
+}
+
+.oldie .column.five {
+    width: 380px;
+}
+
+.oldie .column.six,
+.oldie .column.one-half {
+    width: 460px;
+}
+
+.oldie .column.seven {
+    width: 540px;
+}
+
+.oldie .column.eight,
+.oldie .column.two-thirds {
+    width: 620px;
+}
+
+.oldie .column.nine,
+.oldie .column.three-fourths {
+    width: 700px;
+}
+
+.oldie .column.ten {
+    width: 780px;
+}
+
+.oldie .column.eleven {
+    width: 860px;
+}
+
+.oldie .column.twelve {
+    width: 940px;
+}
+
+/* offsets */
+.oldie .offset-one {
+    padding-left: 80px;
+}
+
+.oldie .offset-two {
+    padding-left: 160px;
+}
+
+.oldie .offset-three,
+.oldie .offset-one-fourth {
+    padding-left: 240px;
+}
+
+.oldie .offset-four,
+.oldie .offset-one-third {
+    padding-left: 320px;
+}
+
+.oldie .offset-five {
+    padding-left: 400px;
+}
+
+.oldie .offset-six,
+.oldie .offset-one-half {
+    padding-left: 480px;
+}
+
+.oldie .offset-seven {
+    padding-left: 560px;
+}
+
+.oldie .offset-eight,
+.oldie .offset-two-thirds {
+    padding-left: 640px;
+}
+
+.oldie .offset-nine,
+.oldie .offset-three-fourths {
+    padding-left: 720px;
+}
+
+.oldie .offset-ten {
+    padding-left: 800px;
+}
+
+.oldie .offset-eleven {
+    padding-left: 880px;
+}
+
+/* 
+ * contain rows of columns 
+ */
+.row {
+    zoom: 1;
+    overflow: hidden;
+}
+
+/*
  * set the container at each resolution
  */
 @media screen and (min-width:480px) {
@@ -59,14 +185,6 @@
     .container.hd {
         width: 1900px;
     }
-}
-
-/* 
- * contain rows of columns 
- */
-.row {
-    zoom: 1;
-    overflow: hidden;
 }
 
 /* 
@@ -293,113 +411,6 @@
     .offset-eleven {
         padding-left: 880px;
     }
-}
-
-/*
- * 960 fallback for IE
- */
-.oldie .column {
-    width: 60px;
-    display: inline; /* fixes double margin bug */
-}
-
-.oldie .column.two {
-    width: 140px;
-}
-
-.oldie .column.three,
-.oldie .column.one-fourth {
-    width: 220px;
-}
-
-.oldie .column.four,
-.oldie .column.one-third {
-    width: 300px;
-}
-
-.oldie .column.five {
-    width: 380px;
-}
-
-.oldie .column.six,
-.oldie .column.one-half {
-    width: 460px;
-}
-
-.oldie .column.seven {
-    width: 540px;
-}
-
-.oldie .column.eight,
-.oldie .column.two-thirds {
-    width: 620px;
-}
-
-.oldie .column.nine,
-.oldie .column.three-fourths {
-    width: 700px;
-}
-
-.oldie .column.ten {
-    width: 780px;
-}
-
-.oldie .column.eleven {
-    width: 860px;
-}
-
-.oldie .column.twelve {
-    width: 940px;
-}
-
-/* offsets */
-.oldie .offset-one {
-    padding-left: 80px;
-}
-
-.oldie .offset-two {
-    padding-left: 160px;
-}
-
-.oldie .offset-three,
-.oldie .offset-one-fourth {
-    padding-left: 240px;
-}
-
-.oldie .offset-four,
-.oldie .offset-one-third {
-    padding-left: 320px;
-}
-
-.oldie .offset-five {
-    padding-left: 400px;
-}
-
-.oldie .offset-six,
-.oldie .offset-one-half {
-    padding-left: 480px;
-}
-
-.oldie .offset-seven {
-    padding-left: 560px;
-}
-
-.oldie .offset-eight,
-.oldie .offset-two-thirds {
-    padding-left: 640px;
-}
-
-.oldie .offset-nine,
-.oldie .offset-three-fourths {
-    padding-left: 720px;
-}
-
-.oldie .offset-ten {
-    padding-left: 800px;
-}
-
-.oldie .offset-eleven {
-    padding-left: 880px;
 }
 
 /* 
