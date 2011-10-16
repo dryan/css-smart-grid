@@ -167,8 +167,11 @@ def get_number_word(num):
     output  =   []
     pieces  =   ('%f' % (num / 10.0)).split('.')
     output.append(tens[int(pieces[0])])
-    output.append(units[int(pieces[1].strip('0'))])
-    
+    try:
+        output.append(units[int(pieces[1].strip('0'))])
+    except ValueError:
+        # the second piece was all zeroes
+        pass
     return "".join(output)
     
 
