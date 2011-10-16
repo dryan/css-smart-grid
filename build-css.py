@@ -195,22 +195,28 @@ for i in range(0, len(breakpoints)):
     
     # work through the columns
     if breakpoint >= minimum_container_with_columns:
+        fourths =   0
+        thirds  =   0
         for col in range(1, opts.columns + 1):
             column_suffix   =   '.' + get_number_word(col) if col > 1 else ''
             col_width       =   col * column_width
             if col > 1:
                 col_width   +=  (opts.gutter_width * (col - 1))
             # handle the special case names
-            if opts.columns / 2 == col:
+            if opts.columns / 2.0 == float(col):
                 breakpoint_output.append('%s.%s%s .%s.one-half,' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            if opts.columns / 4 == col:
+            if opts.columns / 4.0 == float(col):
                 breakpoint_output.append('%s.%s%s .%s.one-fourth,' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            if opts.columns / 3 == col:
+                fourths +=  1
+            if opts.columns / 3.0 == float(col):
                 breakpoint_output.append('%s.%s%s .%s.one-third,' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            if (opts.columns / 4) * 3 == col:
+                thirds  +=  1
+            if (opts.columns / 4.0) * 3 == float(col):
                 breakpoint_output.append('%s.%s%s .%s.three-fourths,' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            if (opts.columns / 3) * 2 == col:
+                fourths +=  1
+            if (opts.columns / 3.0) * 2 == float(col):
                 breakpoint_output.append('%s.%s%s .%s.two-thirds,' % (tab_indent, container_class, breakpoint_suffix, column_class))
+                thirds  +=  1
             breakpoint_output.append('%s.%s%s .%s%s {' % (tab_indent, container_class, breakpoint_suffix, column_class, column_suffix))
             breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, col_width))
             if col == 1 and breakpoint == minimum_container_with_columns:
@@ -222,6 +228,24 @@ for i in range(0, len(breakpoints)):
                 breakpoint_output.append('%s.%s%s .%s.first {' % (tab_indent, container_class, breakpoint_suffix, column_class))
                 breakpoint_output.append('%s\tmargin-left: 0;' % (tab_indent,))
                 breakpoint_output.append('%s}' % tab_indent)
+        if fourths < 2:
+            # we need to manually figure out the quarter column values
+            one_fourth  =   (container_width - (opts.gutter_width * 3)) / 4
+            breakpoint_output.append('%s.%s%s .%s.one-fourth {' % (tab_indent, container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, one_fourth))
+            breakpoint_output.append('%s}' % tab_indent)
+            breakpoint_output.append('%s.%s%s .%s.three-fourths {' % (tab_indent, container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, (one_fourth * 3) + (opts.gutter_width * 2)))
+            breakpoint_output.append('%s}' % tab_indent)
+        if thirds < 2:
+            # we need to manually figure out the third column values
+            one_third   =   (container_width - (opts.gutter_width * 2)) / 3
+            breakpoint_output.append('%s.%s%s .%s.one-third {' % (tab_indent, container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, one_third))
+            breakpoint_output.append('%s}' % tab_indent)
+            breakpoint_output.append('%s.%s%s .%s.two-thirds {' % (tab_indent, container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, (one_third * 2) + opts.gutter_width))
+            breakpoint_output.append('%s}' % tab_indent)
                 
     if breakpoint == opts.ie_fallback_width:
         ie_output   =   [
