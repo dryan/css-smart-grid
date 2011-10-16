@@ -38,7 +38,7 @@ parser.add_option('--stdout', '-o', dest = "stdout", action="store_true", defaul
 parser.add_option('--gutter-width', '-g', default = gutter_width, help = "The width of the gutters between each column.")
 parser.add_option('--columns', '-c', default = columns, help = "The number of columns to create")
 parser.add_option('--ie-fallback-class', default = ie_fallback_class, help = "The class name to use for IE fallback support. Defaults to 'oldie'.")
-parser.add_option('--ie-fallback-width', default = ie_fallback_width, help = "The breakpoint to use for IE fallback support. Must be one of 320, 480, 768, 960, 1200 or 1920. Defaults to 960.")
+parser.add_option('--ie-fallback-width', default = ie_fallback_width, help = "The breakpoint to use for IE fallback support. Must be one of 320, 480, 768, 960, 1200 or 1920. Defaults to 960. A value under %d results in a single column layout." % minimum_container_with_columns)
 parser.add_option('--debug', dest = "debug", action = "store_true", default = False, help = "Print debugging messages to stdout.")
 opts, args   =   parser.parse_args()
 
@@ -68,6 +68,13 @@ if opts.columns % 2:
     
 if opts.columns > 48:
     print colored("%d is more columns than we support." % opts.columns, "red")
+    sys.exit(os.EX_DATAERR)
+    
+if not type(opts.ie_fallback_width) == type(2):
+    opts.ie_fallback_width  =   int(opts.ie_fallback_width)
+    
+if not opts.ie_fallback_width in breakpoints:
+    print colored("%s is not a supported IE fallback width. Try one of %s." % (str(opts.ie_fallback_width), ", ".join("%s" % bp for bp in breakpoints)), "red")
     sys.exit(os.EX_DATAERR)
     
 if opts.debug:
