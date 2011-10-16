@@ -5,11 +5,32 @@ from pprint import pprint
 
 # initial options
 base_dir            =   os.path.join(os.getcwd(), 'css')
-current_version     =   json.load(urllib.urlopen('https://github.com/api/v2/json/repos/show/dryan/css-smart-grid/tags'))['tags'].keys().pop()
+tags                =   json.load(urllib.urlopen('https://github.com/api/v2/json/repos/show/dryan/css-smart-grid/tags'))['tags']
+current_version     =   tags.keys()[len(tags.keys()) - 1]
+latest_update       =   json.load(urllib.urlopen('https://github.com/api/v2/json/commits/show/dryan/css-smart-grid/%s' % tags[current_version]))['commit']['committed_date']
 gutter_width        =   20
 columns             =   12
 ie_fallback_class   =   "oldie"
 ie_fallback_width   =   960
+breakpoints =   [
+    320,
+    480,
+    768,
+    960,
+    1200,
+    1920,
+]
+breakpoint_suffixes =   [
+    None,
+    None,
+    None,
+    None,
+    'large',
+    'hd',
+]
+container_class                 =   'container'
+column_class                    =   'column'
+minimum_container_with_columns  =   768
 
 parser  =   optparse.OptionParser()
 parser.add_option('--version', '-v', default = False, help = "The version to tag the files with. Defaults to the current latest tag from Github. Pass +1 to increment by 1 minor version.")
@@ -62,6 +83,10 @@ if opts.debug:
     
 print colored("Preparing to create version %s\n" % opts.version, "green")
 
+custom_build    =   False
+if ( not opts.columns == columns ) or ( not opts.gutter_width == gutter_width ) or ( not opts.ie_fallback_class == ie_fallback_class ) or ( not opts.ie_fallback_width == ie_fallback_width ):
+    custom_build =   True
+
 head_matter =   [
     '@charset "utf-8";',
     '',
@@ -71,11 +96,24 @@ head_matter =   [
     ' * Copyright 2011 Daniel Ryan. All rights reserved.',
     ' * Code developed under a BSD License: https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt',
     ' * Version: %s' % opts.version,
-    ' * Latest update on %s' % date.today().strftime('%Y-%m-%d'),
+    ' * Latest update: %s' % latest_update,
     ' */',
     '',
 ]
-output      =   [
+
+if custom_build:
+    head_matter +=  [
+        '/*',
+        ' * Custom Build',
+        ' * Columns: %d' % opts.columns,
+        ' * Gutter Width: %d' % opts.gutter_width,
+        ' * IE Fallback Class: %s' % opts.ie_fallback_class,
+        ' * IE Fallback Width: %s' % opts.ie_fallback_width,
+        ' */',
+        '',
+    ]
+    
+head_matter +=  [
     '/*',
     ' * Breakpoints:',
     ' * Mobile/Default      -   320px',
@@ -86,6 +124,8 @@ output      =   [
     ' * Widescreen HD       -   1920px',
     ' */',
     '',
+]
+base_output =   [
     '/*',
     ' * Base container class',
     ' */',
@@ -105,31 +145,7 @@ output      =   [
     '',
 ]
 
-breakpoints =   [
-    320,
-    480,
-    768,
-    960,
-    1200,
-    1920,
-]
-
-breakpoint_suffixes =   [
-    None,
-    None,
-    None,
-    None,
-    'large',
-    'hd',
-]
-
-container_class                 =   'container'
-column_class                    =   'column'
-minimum_container_with_columns  =   768
-
-column_sets =   []
-
-outer_gutter_width  =   opts.gutter_width / 2
+output      =   []
 
 def get_number_word(num):
     units   =   [
@@ -207,94 +223,145 @@ for i in range(0, len(breakpoints)):
                 col_width   +=  (opts.gutter_width * (col - 1))
             # handle the special case names
             if opts.columns / 2.0 == float(col):
-                breakpoint_output.append('%s.%s%s .%s.one-half,' % (tab_indent, container_class, breakpoint_suffix, column_class))
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .%s.one-half,' % (container_class, breakpoint_suffixes[x], column_class))
+                breakpoint_output.append('\t.%s%s .%s.one-half,' % (container_class, breakpoint_suffix, column_class))
             if opts.columns / 4.0 == float(col):
-                breakpoint_output.append('%s.%s%s .%s.one-fourth,' % (tab_indent, container_class, breakpoint_suffix, column_class))
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .%s.one-fourth,' % (container_class, breakpoint_suffixes[x], column_class))
+                breakpoint_output.append('\t.%s%s .%s.one-fourth,' % (container_class, breakpoint_suffix, column_class))
                 fourths +=  1
             if opts.columns / 3.0 == float(col):
-                breakpoint_output.append('%s.%s%s .%s.one-third,' % (tab_indent, container_class, breakpoint_suffix, column_class))
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .%s.one-third,' % (container_class, breakpoint_suffixes[x], column_class))
+                breakpoint_output.append('\t.%s%s .%s.one-third,' % (container_class, breakpoint_suffix, column_class))
                 thirds  +=  1
             if (opts.columns / 4.0) * 3 == float(col):
-                breakpoint_output.append('%s.%s%s .%s.three-fourths,' % (tab_indent, container_class, breakpoint_suffix, column_class))
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .%s.three-fourths,' % (container_class, breakpoint_suffixes[x], column_class))
+                breakpoint_output.append('\t.%s%s .%s.three-fourths,' % (container_class, breakpoint_suffix, column_class))
                 fourths +=  1
             if (opts.columns / 3.0) * 2 == float(col):
-                breakpoint_output.append('%s.%s%s .%s.two-thirds,' % (tab_indent, container_class, breakpoint_suffix, column_class))
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .%s.two-thirds,' % (container_class, breakpoint_suffixes[x], column_class))
+                breakpoint_output.append('\t.%s%s .%s.two-thirds,' % (container_class, breakpoint_suffix, column_class))
                 thirds  +=  1
-            breakpoint_output.append('%s.%s%s .%s%s {' % (tab_indent, container_class, breakpoint_suffix, column_class, column_suffix))
-            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, col_width))
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .%s%s,' % (container_class, breakpoint_suffixes[x], column_class, column_suffix))
+            breakpoint_output.append('\t.%s%s .%s%s {' % (container_class, breakpoint_suffix, column_class, column_suffix))
+            breakpoint_output.append('\t\twidth: %dpx;' % col_width)
             if col == 1 and breakpoint == minimum_container_with_columns:
-                breakpoint_output.append('%s\tfloat: left;' % (tab_indent,))
-                breakpoint_output.append('%s\tmargin-left: 20px;' % (tab_indent,))
-            breakpoint_output.append('%s}' % tab_indent)
+                breakpoint_output.append('\t\tfloat: left;')
+                breakpoint_output.append('\t\tmargin-left: 20px;')
+            breakpoint_output.append('\t}')
             if col == 1 and breakpoint == minimum_container_with_columns:
-                breakpoint_output.append('%s.%s%s .%s:first-child,' % (tab_indent, container_class, breakpoint_suffix, column_class))
-                breakpoint_output.append('%s.%s%s .%s.first {' % (tab_indent, container_class, breakpoint_suffix, column_class))
-                breakpoint_output.append('%s\tmargin-left: 0;' % (tab_indent,))
-                breakpoint_output.append('%s}' % tab_indent)
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .%s:first-child,' % (container_class, breakpoint_suffixes[x], column_class))
+                            breakpoint_output.append('\t.%s.%s .%s.first,' % (container_class, breakpoint_suffixes[x], column_class))
+                breakpoint_output.append('\t.%s%s .%s:first-child,' % (container_class, breakpoint_suffix, column_class))
+                breakpoint_output.append('\t.%s%s .%s.first {' % (container_class, breakpoint_suffix, column_class))
+                breakpoint_output.append('\t\tmargin-left: 0;')
+                breakpoint_output.append('\t}')
         if fourths < 2:
             # we need to manually figure out the quarter column values
             one_fourth  =   (container_width - (opts.gutter_width * 3)) / 4
-            breakpoint_output.append('%s.%s%s .%s.one-fourth {' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, one_fourth))
-            breakpoint_output.append('%s}' % tab_indent)
-            breakpoint_output.append('%s.%s%s .%s.three-fourths {' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, (one_fourth * 3) + (opts.gutter_width * 2)))
-            breakpoint_output.append('%s}' % tab_indent)
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .%s.one-fourth,' % (container_class, breakpoint_suffixes[x], column_class))
+            breakpoint_output.append('\t.%s%s .%s.one-fourth {' % (container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('\t\twidth: %dpx;' % one_fourth)
+            breakpoint_output.append('\t}')
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .%s.three-fourths,' % (container_class, breakpoint_suffixes[x], column_class))
+            breakpoint_output.append('\t.%s%s .%s.three-fourths {' % (container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('\t\twidth: %dpx;' % ((one_fourth * 3) + (opts.gutter_width * 2)))
+            breakpoint_output.append('\t}')
         if thirds < 2:
             # we need to manually figure out the third column values
             one_third   =   (container_width - (opts.gutter_width * 2)) / 3
-            breakpoint_output.append('%s.%s%s .%s.one-third {' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, one_third))
-            breakpoint_output.append('%s}' % tab_indent)
-            breakpoint_output.append('%s.%s%s .%s.two-thirds {' % (tab_indent, container_class, breakpoint_suffix, column_class))
-            breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, (one_third * 2) + opts.gutter_width))
-            breakpoint_output.append('%s}' % tab_indent)
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .%s.one-third,' % (container_class, breakpoint_suffixes[x], column_class))
+            breakpoint_output.append('\t.%s%s .%s.one-third {' % (container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('\t\twidth: %dpx;' % one_third)
+            breakpoint_output.append('\t}')
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .%s.two-thirds,' % (container_class, breakpoint_suffixes[x], column_class))
+            breakpoint_output.append('\t.%s%s .%s.two-thirds {' % (container_class, breakpoint_suffix, column_class))
+            breakpoint_output.append('\t\twidth: %dpx;' % (one_third * 2) + opts.gutter_width)
+            breakpoint_output.append('\t}')
                 
     if breakpoint == opts.ie_fallback_width:
         ie_output   =   [
+            '',
             '/*',
             ' * IE Fallback: %dpx' % breakpoint,
             ' */',
         ]
         for line in breakpoint_output:
             ie_output.append(re.sub(r'^\t', '', line.replace('.%s' % container_class, '.%s .%s' % (opts.ie_fallback_class, container_class))))
+        if breakpoint >= minimum_container_with_columns:
+            ie_output.append('.%s .%s .%s {' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
+            ie_output.append('\tfloat: left;')
+            ie_output.append('\tmargin-left: %dpx;' % opts.gutter_width)
+            ie_output.append('}')
+            ie_output.append('.%s .%s .%s:first-child,' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
+            ie_output.append('.%s .%s .%s.first {' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
+            ie_output.append('\tmargin-left: 0;')
+            ie_output.append('}')
             
-    if not is_base:
-        # wrap these rules in a media query
-        breakpoint_output.insert(0, '@media screen and (min-width:%dpx) {' % breakpoint)
-        # insert the comments about this breakpoint
-        breakpoint_output.insert(0, ' */')
-        breakpoint_output.insert(0, ' * Breakpoint: %dpx' % breakpoint)
-        breakpoint_output.insert(0, '/*')
-        # close the media query
-        breakpoint_output.append('}')
-    else:
-        # insert the comments about this breakpoint
-        breakpoint_output.insert(0, ' */')
-        breakpoint_output.insert(0, ' * Breakpoint: %dpx' % breakpoint)
-        breakpoint_output.insert(0, '/*')
+    # wrap these rules in a media query
+    breakpoint_output.insert(0, '@media screen and (min-width:%dpx) {' % breakpoint)
+    # insert the comments about this breakpoint
+    breakpoint_output.insert(0, ' */')
+    breakpoint_output.insert(0, ' * Breakpoint: %dpx' % breakpoint)
+    breakpoint_output.insert(0, '/*')
+    # close the media query
+    breakpoint_output.append('}')
 
     # push this group onto the main output
     output  =   output + breakpoint_output
-    output  =   output + ie_output
+    if len(ie_output):
+        output  =   ie_output + output
 
 if opts.stdout:
     print "\n".join(head_matter)
+    print "\n".join(base_output)
     print "\n".join(output)
 else:
-    filename        =   'smart-grid-%d-columns-%d-gutters.css' % (opts.columns, opts.gutter_width)
-    if opts.columns == 12 and opts.gutter_width == 20: # our default
-        filename    =   'smart-grid.css'
-    elif opts.gutter_width == 20: # default gutters with different columns
-        filename    =   'smart-grid-%d-columns.css' % opts.columns
+    filename    =   'smart-grid.css'
+    if custom_build: # our default
+        filename    =   'smart-grid-custom-%s.css' % datetime.now().strftime('%Y%m%d%H%M%S')
     filename_min    =   filename.replace('.css', '.min.css')
     f               =   open(os.path.join(base_dir, filename), 'w')
     f.write("\n".join(head_matter))
+    f.write("\n".join(base_output))
     f.write("\n".join(output))
     f.flush()
     f.close()
     f               =   open(os.path.join(base_dir, filename_min), 'w')
     f.write("\n".join(head_matter))
+    f.write(cssmin.cssmin("\n".join(base_output)))
     f.write(cssmin.cssmin("\n".join(output)))
     f.flush()
     f.close()
