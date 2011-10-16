@@ -205,19 +205,18 @@ for i in range(0, len(breakpoints)):
     column_width        =   (container_width - ((opts.columns - 1) * opts.gutter_width)) / opts.columns
     breakpoint_output   =   []
     ie_output           =   []
-    tab_indent          =   "\t" if not is_base else ""
     breakpoint_suffix   =   '.' + breakpoint_suffixes[i] if breakpoint_suffixes[i] else ''
-
+    
     # see if this breakpoint should also cover additional prefixes
     if breakpoint_suffixes[i]:
         for x in range(i, len(breakpoint_suffixes)):
             if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
-                breakpoint_output.append('%s.%s.%s,' % (tab_indent, container_class, breakpoint_suffixes[x]))
+                breakpoint_output.append('\t.%s.%s,' % (container_class, breakpoint_suffixes[x]))
 
     # add the container width for this breakpoint
-    breakpoint_output.append('%s.%s%s {' % (tab_indent, container_class, breakpoint_suffix))
-    breakpoint_output.append('%s\twidth: %dpx;' % (tab_indent, container_width))
-    breakpoint_output.append('%s}' % tab_indent)
+    breakpoint_output.append('\t.%s%s {' % (container_class, breakpoint_suffix))
+    breakpoint_output.append('\t\twidth: %dpx;' % container_width)
+    breakpoint_output.append('\t}')
     
     # work through the columns
     if breakpoint >= minimum_container_with_columns:
