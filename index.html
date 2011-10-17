@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/smart-grid.min.css">
         <link rel="stylesheet" href="css/smart-grid-doc.css">
+        <link rel="stylesheet" href="css/pygments.css">
         
         <script src="js/modernizr.js"></script>
     </head>
@@ -134,55 +135,60 @@
                 
                 <p>There's only one <span class="caps">CSS</span> file to include: <code>smart-grid.min.css</code>. Place that in <code>&lt;head&gt;</code> <em>before</em> your own stylesheet.</p>
                 <p>Wrap your page inside a <code>&lt;div class="container"&gt;</code>. If you want to support larger screens, use <code>&lt;div class="container large"&gt;</code> or for <span class="caps">HD</span> screens use <code>&lt;div class="container hd"&gt;</code>. Note that you can use more than one container if your need calls for it:</p>
-<pre>&lt;header id=&quot;hd&quot;&gt;
-    &lt;div class=&quot;container&quot;&gt;
-        &lt;h1&gt;My Page Title&lt;/h1&gt;
-    &lt;/div&gt;
-&lt;/header&gt;
 
-&lt;section id=&quot;main&quot;&gt;
-    &lt;div class=&quot;container&quot;&gt;
-        &lt;p&gt;This is where my content goes.&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/section&gt;</pre>
+<div class="highlight"><pre><span class="nt">&lt;header</span> <span class="na">id=</span><span class="s">&quot;hd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>My Page Title<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>This is where my content goes.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
 
                 <h3 id="column-markup">Column Markup</h3>
                 <p>Grid columns are achieved by adding a <code>column</code> class to any element. By default, anything with the <code>column</code> class is one column wide. For wider columns, add a class matching the number of columns you want the element to be: <code>two</code>, <code>four</code>, etc. Additionally, there are several shorthand classes for common use cases: <code>one-fourth</code>, <code>three-fourths</code>, <code>one-third</code>, <code>two-thirds</code> and <code>one-half</code>. Group rows of columns together under a parent element with the class <code>row</code> to make sure all of the floats are cleared.</p>
                 
-<pre>&lt;div class=&quot;container&quot;&gt;
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;article id=&quot;main&quot; role=&quot;main&quot; class=&quot;column two-thirds&quot;&gt;
-            &lt;p&gt;The beginning of the best article in the history of humanity.&lt;/p&gt;
-        &lt;/article&gt;
-        &lt;aside id=&quot;sidebar&quot; role=&quot;complementary&quot; class=&quot;column four&quot;&gt;
-            &lt;p&gt;Here is some additional information.&lt;/p&gt;
-        &lt;/aside&gt;
-    &lt;/div&gt;&lt;!-- end .row --&gt;
-&lt;/div&gt;&lt;!-- end .container --&gt;</pre>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;column two-thirds&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>The beginning of the best article in the history of humanity.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/article&gt;</span>
+        <span class="nt">&lt;aside</span> <span class="na">id=</span><span class="s">&quot;sidebar&quot;</span> <span class="na">role=</span><span class="s">&quot;complementary&quot;</span> <span class="na">class=</span><span class="s">&quot;column four&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Here is some additional information.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/aside&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .row --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
+</pre></div>
     
                 <p>If you only have one row of columns in a container, you can use the same element for both classes:</p>
                 
-<pre>&lt;div class=&quot;container row&quot;&gt;
-    &lt;article id=&quot;main&quot; role=&quot;main&quot; class=&quot;column two-thirds&quot;&gt;
-        &lt;p&gt;The beginning of the best article in the history of humanity.&lt;/p&gt;
-    &lt;/article&gt;
-    &lt;aside id=&quot;sidebar&quot; role=&quot;complementary&quot; class=&quot;column four&quot;&gt;
-        &lt;p&gt;Here is some additional information.&lt;/p&gt;
-    &lt;/aside&gt;
-&lt;/div&gt;&lt;!-- end .container --&gt;</pre>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;column two-thirds&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>The beginning of the best article in the history of humanity.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;aside</span> <span class="na">id=</span><span class="s">&quot;sidebar&quot;</span> <span class="na">role=</span><span class="s">&quot;complementary&quot;</span> <span class="na">class=</span><span class="s">&quot;column four&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Here is some additional information.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/aside&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
+</pre></div>
                 
                 <h3 id="column-offsets">Column Offsets</h3>
 
                 <p>Sometimes you need a blank column between content. Rather than add superfluous markup, you can add one of the <code>offset-xxxxx</code> classes to the element you want to push left. There are classes defined to offset anywhere from 1 (<code>offset-one</code>) to 11 (<code>offset-eleven</code>) columns. Note that the offsets work by padding the element they're placed on; if you change the padding in your own <span class="caps">CSS</span>, the offsets will not work. Just like their column counterparts, offsets only take effect in browsers that are at least 768 pixels wide.</p>
                 
-<pre>&lt;div class=&quot;container row&quot;&gt;
-    &lt;div class=&quot;column two offset-two&quot;&gt;
-        &lt;p&gt;There are two blank columns to the left of this one.&lt;/p&gt;
-    &lt;/div&gt;&lt;!-- end .two --&gt;
-    &lt;div class=&quot;column seven offset-one&quot;&gt;
-        &lt;p&gt;This column leaves one column empty between it and it&#x27;s predecessor then takes up the rest of the row.&lt;/p&gt;
-    &lt;/div&gt;&lt;!-- end .seven --&gt;
-&lt;/div&gt;&lt;!-- end .container --&gt;</pre>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;column two offset-two&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>There are two blank columns to the left of this one.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .two --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;column seven offset-one&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>This column leaves one column empty between it and it&#39;s predecessor then takes up the rest of the row.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .seven --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
+</pre></div>
 
                 <p>You can mix and match columns and offsets however you want as long as the offset and column numbers add up to 12. To see it all working together, <a href="demo.html" title="View the demo">view the demo</a>.</p>
                 <p>To get around the <a href="http://www.quirksmode.org/css/contents.html#t17" title="Learn more at Quirksmode"><span class="caps">IE</span> 7 <code>:first-child</code> bug</a> when adding elements via JavaScript, make sure to add a class of <code>first</code> to element you introduce that is the first-child in its row.</p>
