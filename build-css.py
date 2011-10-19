@@ -275,7 +275,7 @@ for i in range(0, len(breakpoints)):
             breakpoint_output.append('\t\twidth: %dpx;' % col_width)
             if col == 1 and breakpoint == minimum_container_with_columns:
                 breakpoint_output.append('\t\tfloat: left;')
-                breakpoint_output.append('\t\tmargin-left: 20px;')
+                breakpoint_output.append('\t\tmargin-left: %dpx;' % opts.gutter_width)
             breakpoint_output.append('\t}')
             if col < opts.columns:
                 # do the offset
