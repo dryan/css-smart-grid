@@ -1,13 +1,13 @@
 import sys, os, cssmin, optparse, urllib, json, re
 from termcolor import colored
 from datetime import date
-from pprint import pprint
+from dateutil import parser
 
 # initial options
 base_dir            =   os.path.join(os.getcwd(), 'css')
 tags                =   json.load(urllib.urlopen('https://github.com/api/v2/json/repos/show/dryan/css-smart-grid/tags'))['tags']
 current_version     =   tags.keys()[len(tags.keys()) - 1]
-latest_update       =   json.load(urllib.urlopen('https://github.com/api/v2/json/commits/show/dryan/css-smart-grid/%s' % tags[current_version]))['commit']['committed_date']
+latest_update       =   parser.parse(json.load(urllib.urlopen('https://github.com/api/v2/json/commits/show/dryan/css-smart-grid/%s' % tags[current_version]))['commit']['committed_date'])
 gutter_width        =   20
 columns             =   12
 ie_fallback_class   =   "oldie"
@@ -103,7 +103,7 @@ head_matter =   [
     ' * Copyright 2011 Daniel Ryan. All rights reserved.',
     ' * Code developed under a BSD License: https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt',
     ' * Version: %s' % opts.version,
-    ' * Latest update: %s' % latest_update,
+    ' * Latest update: %s' % latest_update.strftime('%Y-%m-%d'),
     ' */',
     '',
 ]
