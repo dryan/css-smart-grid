@@ -79,6 +79,9 @@ if not opts.ie_fallback_width in breakpoints:
     print colored("%s is not a supported IE fallback width. Try one of %s." % (str(opts.ie_fallback_width), ", ".join("%s" % bp for bp in breakpoints)), "red")
     sys.exit(os.EX_DATAERR)
     
+if not type(opts.gutter_width) == type(2):
+    opts.gutter_width   =   int(opts.gutter_width)
+    
 if opts.debug:
     print "Options"
     for opt in dir(opts):
