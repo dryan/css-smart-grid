@@ -272,6 +272,46 @@ for i in range(0, len(breakpoints)):
                 breakpoint_output.append('\t\tfloat: left;')
                 breakpoint_output.append('\t\tmargin-left: 20px;')
             breakpoint_output.append('\t}')
+            if col < opts.columns:
+                # do the offset
+                # handle the special case names
+                if opts.columns / 2.0 == float(col):
+                    if breakpoint_suffixes[i]:
+                        for x in range(i, len(breakpoint_suffixes)):
+                            if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                                breakpoint_output.append('\t.%s.%s .offset-one-half,' % (container_class, breakpoint_suffixes[x]))
+                    breakpoint_output.append('\t.%s%s .offset-one-half,' % (container_class, breakpoint_suffix))
+                if opts.columns / 4.0 == float(col):
+                    if breakpoint_suffixes[i]:
+                        for x in range(i, len(breakpoint_suffixes)):
+                            if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                                breakpoint_output.append('\t.%s.%s .offset-one-fourth,' % (container_class, breakpoint_suffixes[x]))
+                    breakpoint_output.append('\t.%s%s .offset-one-fourth,' % (container_class, breakpoint_suffix))
+                if opts.columns / 3.0 == float(col):
+                    if breakpoint_suffixes[i]:
+                        for x in range(i, len(breakpoint_suffixes)):
+                            if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                                breakpoint_output.append('\t.%s.%s .offset-one-third,' % (container_class, breakpoint_suffixes[x]))
+                    breakpoint_output.append('\t.%s%s .offset-one-third,' % (container_class, breakpoint_suffix))
+                if (opts.columns / 4.0) * 3 == float(col):
+                    if breakpoint_suffixes[i]:
+                        for x in range(i, len(breakpoint_suffixes)):
+                            if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                                breakpoint_output.append('\t.%s.%s .offset-three-fourths,' % (container_class, breakpoint_suffixes[x]))
+                    breakpoint_output.append('\t.%s%s .offset-three-fourths,' % (container_class, breakpoint_suffix))
+                if (opts.columns / 3.0) * 2 == float(col):
+                    if breakpoint_suffixes[i]:
+                        for x in range(i, len(breakpoint_suffixes)):
+                            if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                                breakpoint_output.append('\t.%s.%s .offset-two-thirds,' % (container_class, breakpoint_suffixes[x]))
+                    breakpoint_output.append('\t.%s%s .offset-two-thirds,' % (container_class, breakpoint_suffix))
+                if breakpoint_suffixes[i]:
+                    for x in range(i, len(breakpoint_suffixes)):
+                        if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                            breakpoint_output.append('\t.%s.%s .offset-%s,' % (container_class, breakpoint_suffixes[x], get_number_word(col)))
+                breakpoint_output.append('\t.%s%s .offset-%s {' % (container_class, breakpoint_suffix, get_number_word(col)))
+                breakpoint_output.append('\t\tpadding-left: %dpx;' % (col_width + opts.gutter_width))
+                breakpoint_output.append('\t}')
             if col == 1 and breakpoint == minimum_container_with_columns:
                 if breakpoint_suffixes[i]:
                     for x in range(i, len(breakpoint_suffixes)):
@@ -295,9 +335,23 @@ for i in range(0, len(breakpoints)):
             if breakpoint_suffixes[i]:
                 for x in range(i, len(breakpoint_suffixes)):
                     if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .offset-one-fourth,' % (container_class, breakpoint_suffixes[x]))
+            breakpoint_output.append('\t.%s%s .offset-one-fourth {' % (container_class, breakpoint_suffix))
+            breakpoint_output.append('\t\tpadding-left: %dpx;' % one_fourth + opts.gutter_width)
+            breakpoint_output.append('\t}')
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
                         breakpoint_output.append('\t.%s.%s .%s.three-fourths,' % (container_class, breakpoint_suffixes[x], column_class))
             breakpoint_output.append('\t.%s%s .%s.three-fourths {' % (container_class, breakpoint_suffix, column_class))
             breakpoint_output.append('\t\twidth: %dpx;' % ((one_fourth * 3) + (opts.gutter_width * 2)))
+            breakpoint_output.append('\t}')
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .offset-three-fourths,' % (container_class, breakpoint_suffixes[x]))
+            breakpoint_output.append('\t.%s%s .offset-three-fourths {' % (container_class, breakpoint_suffix))
+            breakpoint_output.append('\t\tpadding-left: %dpx;' % ((one_fourth * 3) + (opts.gutter_width * 3)))
             breakpoint_output.append('\t}')
         if thirds < 2:
             # we need to manually figure out the third column values
@@ -312,9 +366,16 @@ for i in range(0, len(breakpoints)):
             if breakpoint_suffixes[i]:
                 for x in range(i, len(breakpoint_suffixes)):
                     if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
-                        breakpoint_output.append('\t.%s.%s .%s.two-thirds,' % (container_class, breakpoint_suffixes[x], column_class))
-            breakpoint_output.append('\t.%s%s .%s.two-thirds {' % (container_class, breakpoint_suffix, column_class))
-            breakpoint_output.append('\t\twidth: %dpx;' % (one_third * 2) + opts.gutter_width)
+                        breakpoint_output.append('\t.%s.%s .offset-one-third,' % (container_class, breakpoint_suffixes[x]))
+            breakpoint_output.append('\t.%s%s .offset-one-third {' % (container_class, breakpoint_suffix))
+            breakpoint_output.append('\t\tpadding-left: %dpx;' % (one_third + opts.gutter_width))
+            breakpoint_output.append('\t}')
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .offset-two-thirds,' % (container_class, breakpoint_suffixes[x]))
+            breakpoint_output.append('\t.%s%s .offset-two-thirds {' % (container_class, breakpoint_suffix))
+            breakpoint_output.append('\t\tpadding-left: %dpx;' % (one_third * 2) + (opts.gutter_width * 2))
             breakpoint_output.append('\t}')
                 
     if breakpoint == opts.ie_fallback_width:
