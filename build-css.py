@@ -54,7 +54,9 @@ if opts.version and opts.version == '+1':
     
 if not opts.version:
     opts.version    =   current_version
-    
+else:
+    latest_update   =   date.today()
+        
 if not re.search(r"^[\d]+\.[\d]+\.[\d]+$", opts.version):
     print colored("Version number %s is not in the format X.X.X" % opts.version, "red")
     sys.exit(os.EX_DATAERR)
