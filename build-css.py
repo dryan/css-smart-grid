@@ -100,7 +100,7 @@ head_matter =   [
     '@charset "utf-8";',
     '',
     '/*',
-    ' * smart-grid-core.css',
+    ' * smart-grid.css',
     ' * Created by Daniel Ryan on 2011-10-09',
     ' * Copyright 2011 Daniel Ryan. All rights reserved.',
     ' * Code developed under a BSD License: https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt',
