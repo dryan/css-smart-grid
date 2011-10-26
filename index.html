@@ -36,7 +36,7 @@
         </header><!-- end #hd -->
             
         <div class="container" id="content">
-            <nav id="sb" role="navigation" class="column one-fourth">
+            <nav id="sb" role="navigation" class="columns one-fourth">
                 <ul>
                     <li>
                         <a href="#what-does-it-do" title="About CSS Smart Grid">About <span class="caps">CSS</span> Smart Grid</a>
@@ -56,7 +56,7 @@
                 </ul>
             </nav><!-- end #sb -->
 
-            <article id="main" role="main" class="column three-fourths">
+            <article id="main" role="main" class="columns three-fourths">
                 <h2 id="what-does-it-do">What does it do?</h2>
                 <p><span class="caps">CSS</span> Smart Grid builds on the popular <a href="http://960.gs" title="960 Grid System">960 grid concept</a>, mixing in responsive grids that are <a href="http://www.abookapart.com/products/mobile-first" title="Mobile First from A Book Apart">“mobile first”</a>. It is built on three concepts:</p>
                 <ol>
@@ -150,14 +150,14 @@
 </pre></div>
 
                 <h3 id="column-markup">Column Markup</h3>
-                <p>Grid columns are achieved by adding a <code>column</code> class to any element. By default, anything with the <code>column</code> class is one column wide. For wider columns, add a class matching the number of columns you want the element to be: <code>two</code>, <code>four</code>, etc. Additionally, there are several shorthand classes for common use cases: <code>one-fourth</code>, <code>three-fourths</code>, <code>one-third</code>, <code>two-thirds</code> and <code>one-half</code>. Group rows of columns together under a parent element with the class <code>row</code> to make sure all of the floats are cleared.</p>
+                <p>Grid columns are achieved by adding a <code>column</code> class to any element. By default, anything with the <code>column</code> class is one column wide. For wider columns, add a class matching the number of columns you want the element to be: <code>two</code>, <code>four</code>, etc. Additionally, there are several shorthand classes for common use cases: <code>one-fourth</code>, <code>three-fourths</code>, <code>one-third</code>, <code>two-thirds</code>, <code>one-fifth</code>, <code>two-fifths</code>, <code>three-fifths</code>, <code>four-fifths</code> and <code>one-half</code>. Group rows of columns together under a parent element with the class <code>row</code> to make sure all of the floats are cleared.</p>
                 
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;column two-thirds&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;columns two-thirds&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>The beginning of the best article in the history of humanity.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/article&gt;</span>
-        <span class="nt">&lt;aside</span> <span class="na">id=</span><span class="s">&quot;sidebar&quot;</span> <span class="na">role=</span><span class="s">&quot;complementary&quot;</span> <span class="na">class=</span><span class="s">&quot;column four&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;aside</span> <span class="na">id=</span><span class="s">&quot;sidebar&quot;</span> <span class="na">role=</span><span class="s">&quot;complementary&quot;</span> <span class="na">class=</span><span class="s">&quot;columns four&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>Here is some additional information.<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/aside&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .row --&gt;</span>
@@ -167,10 +167,10 @@
                 <p>If you only have one row of columns in a container, you can use the same element for both classes:</p>
                 
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;column two-thirds&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;columns two-thirds&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p&gt;</span>The beginning of the best article in the history of humanity.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/article&gt;</span>
-    <span class="nt">&lt;aside</span> <span class="na">id=</span><span class="s">&quot;sidebar&quot;</span> <span class="na">role=</span><span class="s">&quot;complementary&quot;</span> <span class="na">class=</span><span class="s">&quot;column four&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;aside</span> <span class="na">id=</span><span class="s">&quot;sidebar&quot;</span> <span class="na">role=</span><span class="s">&quot;complementary&quot;</span> <span class="na">class=</span><span class="s">&quot;columns four&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p&gt;</span>Here is some additional information.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/aside&gt;</span>
 <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
@@ -181,10 +181,10 @@
                 <p>Sometimes you need a blank column between content. Rather than add superfluous markup, you can add one of the <code>offset-xxxxx</code> classes to the element you want to push left. There are classes defined to offset anywhere from 1 (<code>offset-one</code>) to 11 (<code>offset-eleven</code>) columns. Note that the offsets work by padding the element they're placed on; if you change the padding in your own <span class="caps">CSS</span>, the offsets will not work. Just like their column counterparts, offsets only take effect in browsers that are at least 768 pixels wide.</p>
                 
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container row&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;column two offset-two&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;columns two offset-two&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p&gt;</span>There are two blank columns to the left of this one.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .two --&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;column seven offset-one&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;columns seven offset-one&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p&gt;</span>This column leaves one column empty between it and it&#39;s predecessor then takes up the rest of the row.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .seven --&gt;</span>
 <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
@@ -195,15 +195,15 @@
             </article><!-- end #main -->
             
             <footer id="ft" role="contentinfo">
-                <p class="column one-fourth"><strong>Acknowledgments</strong></p>
-                <ul class="column three-fourths">
+                <p class="columns one-fourth"><strong>Acknowledgments</strong></p>
+                <ul class="columns three-fourths">
                     <li><a href="http://960.gs/" title="960 Grid System">960 Grid System</a></li>
                     <li><a hef="http://unstoppablerobotninja.com/" title="Ethan Marcotte">Ethan Marcotte</a></li>
                     <li><a href="http://html5boilerplate.com/" title="HTML5 Boilerplate">HTML5 Boilerplate</a></li>
                     <li><a href="http://getskeleton.com/" title="Skeleton CSS">Skeleton</a></li>
                     <li><a href="http://twitter.github.com/" title="Twitter Bootstrap">Twitter Bootstrap</a></li>
                 </ul>
-                <p class="license"><strong class="column one-fourth">License</strong> <a rel="license" class="column three-fourths" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">BSD 3-Clause License</a></p>
+                <p class="license"><strong class="columns one-fourth">License</strong> <a rel="license" class="columns three-fourths" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">BSD 3-Clause License</a></p>
             </footer><!-- end #ft -->
         </div><!-- end #content -->
     </body>
