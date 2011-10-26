@@ -382,6 +382,25 @@ for i in range(0, len(breakpoints)):
             breakpoint_output.append('\t.%s%s .offset-two-thirds {' % (container_class, breakpoint_suffix))
             breakpoint_output.append('\t\tpadding-left: %dpx;' % (one_third * 2) + (opts.gutter_width * 2))
             breakpoint_output.append('\t}')
+            
+        # do the fifths
+        one_fifth   =   (container_width - (opts.gutter_width * 4)) / 5
+        for fifth in range(1,6):
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .%s.%s-fifth%s,' % (container_class, breakpoint_suffixes[x], column_class, get_number_word(fifth), 's' if fifth > 1 else ''))
+            breakpoint_output.append('\t.%s%s .%s.%s-fifth%s {' % (container_class, breakpoint_suffix, column_class, get_number_word(fifth), 's' if fifth > 1 else ''))
+            breakpoint_output.append('\t\twidth: %dpx;' % ((one_fifth * fifth) + (opts.gutter_width * (fifth - 1))))
+            breakpoint_output.append('\t}')
+            if breakpoint_suffixes[i]:
+                for x in range(i, len(breakpoint_suffixes)):
+                    if not breakpoint_suffixes[x] == breakpoint_suffix.strip('.'):
+                        breakpoint_output.append('\t.%s.%s .offset-%s-fifth%s,' % (container_class, breakpoint_suffixes[x], get_number_word(fifth), 's' if fifth > 1 else ''))
+            breakpoint_output.append('\t.%s%s .offset-%s-fifth%s {' % (container_class, breakpoint_suffix, get_number_word(fifth), 's' if fifth > 1 else ''))
+            breakpoint_output.append('\t\tpadding-left: %dpx;' % ((one_fifth * fifth) + (opts.gutter_width * fifth)))
+            breakpoint_output.append('\t}')
+            
                 
     if breakpoint == opts.ie_fallback_width:
         ie_output   =   [
