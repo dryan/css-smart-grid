@@ -29,7 +29,7 @@ breakpoint_suffixes =   [
     'hd',
 ]
 container_class                 =   'container'
-column_class                    =   'column'
+column_class                    =   'columns'
 minimum_container_with_columns  =   768
 
 parser  =   optparse.OptionParser()
