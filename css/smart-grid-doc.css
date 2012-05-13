@@ -41,6 +41,15 @@ body {
     code {
         background-color: transparent;
     }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500;
+    }
 
     .amp {
         font-size: 110%;
@@ -73,8 +82,13 @@ body {
             line-height: 44px;
         }
         
+        #hd h1 a {
+            color: inherit;
+            font-weight: 500;
+        }
+        
         #hd .tagline {
-            font-weight: bold;
+            font-weight: 500;
             color: #666;
         }
         
@@ -108,9 +122,13 @@ body {
 @media screen and (min-width:768px) {
         #hd nav {
             position: absolute;
-            top: 0;
+            bottom: -2px;
             right: 0;
             margin: 0;
+        }
+        
+        #hd nav ul li.follow {
+            margin-right: 0;
         }
 }
 
@@ -194,10 +212,6 @@ body {
     #sb a {
         color: #aaa;
     }
-    
-        #sb a {
-            font-weight: bold;
-        }
     
         #sb a:hover {
             color: #f00;
