@@ -144,9 +144,18 @@ base_output =   [
     '/*',
     ' * contain rows of columns',
     ' */',
-    '.row {',
-    '    zoom: 1;',
-    '    overflow: hidden;',
+    '.row:after {',
+    '   content: ".";',
+    '	display: block;',
+    '	height: 0;',
+    '	clear: both;',
+    '	visibility: hidden;',
+    '}',
+    'html.ie7 .row {',
+    '   display: inline-block;',
+    '}',
+    'html.ie6 .row {',
+    '   height: 1%;',
     '}',
     '',
 ]
@@ -404,14 +413,14 @@ for i in range(0, len(breakpoints)):
             ' */',
         ]
         for line in breakpoint_output:
-            ie_output.append(re.sub(r'^\t', '', line.replace('.%s' % container_class, '.%s .%s' % (opts.ie_fallback_class, container_class))))
+            ie_output.append(re.sub(r'^\t', '', line.replace('.%s' % container_class, 'html.%s .%s' % (opts.ie_fallback_class, container_class))))
         if breakpoint >= minimum_container_with_columns:
-            ie_output.append('.%s .%s .%s {' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
+            ie_output.append('html.%s .%s .%s {' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
             ie_output.append('\tfloat: left;')
             ie_output.append('\tmargin-left: %dpx;' % opts.gutter_width)
             ie_output.append('}')
-            ie_output.append('.%s .%s .%s:first-child,' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
-            ie_output.append('.%s .%s .%s.first {' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
+            ie_output.append('html.%s .%s .%s:first-child,' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
+            ie_output.append('html.%s .%s .%s.first {' % (opts.ie_fallback_class, (container_class + '.' + breakpoint_suffix if len(breakpoint_suffix) else container_class), column_class))
             ie_output.append('\tmargin-left: 0;')
             ie_output.append('}')
             
