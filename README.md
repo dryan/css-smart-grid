@@ -1,1 +1,1 @@
-For more info visit http://dryan.github.com/css-smart-grid/
+For more info visit http://dryan.com/css-smart-grid/
