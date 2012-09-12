@@ -5,7 +5,7 @@
  * Created by Daniel Ryan on 2011-10-09
  * Copyright 2011 Daniel Ryan. All rights reserved.
  * Code developed under a BSD License: https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt
- * Version: 2.0.0
+ * Version: 2.0.1
  * Latest update: 2012-09-11
  */
 
@@ -28,132 +28,141 @@
 /*
  * contain rows of columns
  */
-.row {
-    zoom: 1;
-    overflow: hidden;
+.row:after {
+   content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+html.ie7 .row {
+   display: inline-block;
+}
+html.ie6 .row {
+   height: 1%;
 }
 
 /*
  * IE Fallback: 960px
  */
-.oldie .container {
+html.oldie .container {
 	width: 940px;
 }
-.oldie .container .columns {
+html.oldie .container .columns {
 	width: 60px;
 }
-.oldie .container .offset-one {
+html.oldie .container .offset-one {
 	padding-left: 80px;
 }
-.oldie .container .columns.two {
+html.oldie .container .columns.two {
 	width: 140px;
 }
-.oldie .container .offset-two {
+html.oldie .container .offset-two {
 	padding-left: 160px;
 }
-.oldie .container .columns.one-fourth,
-.oldie .container .columns.three {
+html.oldie .container .columns.one-fourth,
+html.oldie .container .columns.three {
 	width: 220px;
 }
-.oldie .container .offset-one-fourth,
-.oldie .container .offset-three {
+html.oldie .container .offset-one-fourth,
+html.oldie .container .offset-three {
 	padding-left: 240px;
 }
-.oldie .container .columns.one-third,
-.oldie .container .columns.four {
+html.oldie .container .columns.one-third,
+html.oldie .container .columns.four {
 	width: 300px;
 }
-.oldie .container .offset-one-third,
-.oldie .container .offset-four {
+html.oldie .container .offset-one-third,
+html.oldie .container .offset-four {
 	padding-left: 320px;
 }
-.oldie .container .columns.five {
+html.oldie .container .columns.five {
 	width: 380px;
 }
-.oldie .container .offset-five {
+html.oldie .container .offset-five {
 	padding-left: 400px;
 }
-.oldie .container .columns.one-half,
-.oldie .container .columns.six {
+html.oldie .container .columns.one-half,
+html.oldie .container .columns.six {
 	width: 460px;
 }
-.oldie .container .offset-one-half,
-.oldie .container .offset-six {
+html.oldie .container .offset-one-half,
+html.oldie .container .offset-six {
 	padding-left: 480px;
 }
-.oldie .container .columns.seven {
+html.oldie .container .columns.seven {
 	width: 540px;
 }
-.oldie .container .offset-seven {
+html.oldie .container .offset-seven {
 	padding-left: 560px;
 }
-.oldie .container .columns.two-thirds,
-.oldie .container .columns.eight {
+html.oldie .container .columns.two-thirds,
+html.oldie .container .columns.eight {
 	width: 620px;
 }
-.oldie .container .offset-two-thirds,
-.oldie .container .offset-eight {
+html.oldie .container .offset-two-thirds,
+html.oldie .container .offset-eight {
 	padding-left: 640px;
 }
-.oldie .container .columns.three-fourths,
-.oldie .container .columns.nine {
+html.oldie .container .columns.three-fourths,
+html.oldie .container .columns.nine {
 	width: 700px;
 }
-.oldie .container .offset-three-fourths,
-.oldie .container .offset-nine {
+html.oldie .container .offset-three-fourths,
+html.oldie .container .offset-nine {
 	padding-left: 720px;
 }
-.oldie .container .columns.ten {
+html.oldie .container .columns.ten {
 	width: 780px;
 }
-.oldie .container .offset-ten {
+html.oldie .container .offset-ten {
 	padding-left: 800px;
 }
-.oldie .container .columns.eleven {
+html.oldie .container .columns.eleven {
 	width: 860px;
 }
-.oldie .container .offset-eleven {
+html.oldie .container .offset-eleven {
 	padding-left: 880px;
 }
-.oldie .container .columns.twelve {
+html.oldie .container .columns.twelve {
 	width: 940px;
 }
-.oldie .container .columns.one-fifth {
+html.oldie .container .columns.one-fifth {
 	width: 172px;
 }
-.oldie .container .offset-one-fifth {
+html.oldie .container .offset-one-fifth {
 	padding-left: 192px;
 }
-.oldie .container .columns.two-fifths {
+html.oldie .container .columns.two-fifths {
 	width: 364px;
 }
-.oldie .container .offset-two-fifths {
+html.oldie .container .offset-two-fifths {
 	padding-left: 384px;
 }
-.oldie .container .columns.three-fifths {
+html.oldie .container .columns.three-fifths {
 	width: 556px;
 }
-.oldie .container .offset-three-fifths {
+html.oldie .container .offset-three-fifths {
 	padding-left: 576px;
 }
-.oldie .container .columns.four-fifths {
+html.oldie .container .columns.four-fifths {
 	width: 748px;
 }
-.oldie .container .offset-four-fifths {
+html.oldie .container .offset-four-fifths {
 	padding-left: 768px;
 }
-.oldie .container .columns.five-fifths {
+html.oldie .container .columns.five-fifths {
 	width: 940px;
 }
-.oldie .container .offset-five-fifths {
+html.oldie .container .offset-five-fifths {
 	padding-left: 960px;
 }
-.oldie .container .columns {
+html.oldie .container .columns {
 	float: left;
 	margin-left: 20px;
 }
-.oldie .container .columns:first-child,
-.oldie .container .columns.first {
+html.oldie .container .columns:first-child,
+html.oldie .container .columns.first {
 	margin-left: 0;
 }
 /*
