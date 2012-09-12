@@ -13,16 +13,12 @@ columns             =   12
 ie_fallback_class   =   "oldie"
 ie_fallback_width   =   960
 breakpoints =   [
-    320,
-    480,
     768,
     960,
     1200,
     1920,
 ]
 breakpoint_suffixes =   [
-    None,
-    None,
     None,
     None,
     'large',
@@ -128,8 +124,6 @@ if custom_build:
 head_matter +=  [
     '/*',
     ' * Breakpoints:',
-    ' * Mobile/Default      -   320px',
-    ' * Mobile (landscape)  -   480px',
     ' * Tablet              -   768px',
     ' * Desktop             -   960px',
     ' * Widescreen          -   1200px',
