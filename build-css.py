@@ -5,9 +5,9 @@ from dateutil import parser
 
 # initial options
 base_dir            =   os.path.join(os.getcwd(), 'css')
-tags                =   json.load(urllib.urlopen('https://github.com/api/v2/json/repos/show/dryan/css-smart-grid/tags'))['tags']
-current_version     =   tags.keys()[len(tags.keys()) - 1]
-latest_update       =   parser.parse(json.load(urllib.urlopen('https://github.com/api/v2/json/commits/show/dryan/css-smart-grid/%s' % tags[current_version]))['commit']['committed_date'])
+tags                =   json.load(urllib.urlopen('https://api.github.com/repos/dryan/css-smart-grid/tags'))
+current_version     =   tags[0]["name"]
+latest_update       =   parser.parse(json.load(urllib.urlopen(tags[0]["commit"]["url"]))["commit"]["committer"]["date"])
 gutter_width        =   20
 columns             =   12
 ie_fallback_class   =   "oldie"
