@@ -5,14 +5,12 @@
  * Created by Daniel Ryan on 2011-10-09
  * Copyright 2011 Daniel Ryan. All rights reserved.
  * Code developed under a BSD License: https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt
- * Version: 1.0.5
- * Latest update: 2011-10-26
+ * Version: 2.0.0
+ * Latest update: 2012-09-11
  */
 
 /*
  * Breakpoints:
- * Mobile/Default      -   320px
- * Mobile (landscape)  -   480px
  * Tablet              -   768px
  * Desktop             -   960px
  * Widescreen          -   1200px
@@ -157,22 +155,6 @@
 .oldie .container .columns:first-child,
 .oldie .container .columns.first {
 	margin-left: 0;
-}
-/*
- * Breakpoint: 320px
- */
-@media screen and (min-width:320px) {
-	.container {
-		width: 300px;
-	}
-}
-/*
- * Breakpoint: 480px
- */
-@media screen and (min-width:480px) {
-	.container {
-		width: 460px;
-	}
 }
 /*
  * Breakpoint: 768px
