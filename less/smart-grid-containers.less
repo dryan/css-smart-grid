@@ -1,0 +1,34 @@
+@import "smart-grid-variables";
+
+.container {
+    max-width: @containerMaxWidth;
+    padding: 0 @gutter/2;
+    margin: 0 auto;
+}
+
+.container,
+.row {
+    display: inline-block;
+    &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+}
+
+html[lang] {
+    .container,
+    .row {
+        display: block;
+    }
+}
+
+* html {
+    .container,
+    .row {
+        height: 1%;
+    }
+}

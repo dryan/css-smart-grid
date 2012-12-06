@@ -43,11 +43,11 @@
     margin-top: 0;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:481px) {
     #main .row .columns b {
         margin-top: 0;
     }
-    
+
     .practical-demo #main .callouts .columns b {
         margin-bottom: 0;
     }
