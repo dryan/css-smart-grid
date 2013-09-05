@@ -4,36 +4,40 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
+        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>CSS Smart Grid &mdash; A Lightweight, Responsive, Mobile First 960 Grid</title>
         <meta name="description" content="Based on the popular 960 grid system, CSS Smart Grid is design from the ground up to be lightweight, responsive and mobile-first.">
         <meta name="author" content="humans.txt">
-        
+
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/smart-grid.css">
         <link rel="stylesheet" href="css/smart-grid-doc.css">
         <link rel="stylesheet" href="css/pygments.css">
-        
+
         <script src="js/modernizr.js"></script>
+        <script>
+            var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-3625251-12"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();
+            var _gauges=_gauges||[];(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.id="gauges-tracker";a.setAttribute("data-site-id","4faf1bdff5a1f501f8000047");a.src="//secure.gaug.es/track.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();
+        </script>
     </head>
-    
+
     <body>
-        <header id="hd" role="banner" class="row">
+        <header id="hd" role="banner">
             <div class="container">
                 <h1><a href="./" title="Homepage"><span class="caps">CSS</span> Smart Grid</a></h1>
                 <p class="tagline">Lightweight, Responsive <span class="amp">&amp;</span> Mobile First</p>
                 <nav>
                     <ul>
-                        <li class="download"><a class="button" href="https://github.com/dryan/css-smart-grid/downloads" title="Download the CSS, PSD Templates and Sketch Templates at Github">Download<b> at Github</b></a></li>
-                        <li class="fork"><a class="button" href="https://github.com/dryan/css-smart-grid/" title="Fork it on Github"><b>Fork it on </b>Github</a></li>
+                        <li><a href="https://github.com/dryan/css-smart-grid/" title="Get it on Github" class="button">Get it on Github</a></li>
                     </ul>
                 </nav>
             </div><!-- end .container -->
         </header><!-- end #hd -->
-            
+
         <div class="container" id="content">
             <nav id="sb" role="navigation" class="columns one-fourth">
                 <ul>
@@ -43,13 +47,14 @@
                             <li><a href="#performance-driven" title="Performance Driven">Performance Driven</a></li>
                             <li><a href="#built-to-scale" title="Built to Scale">Built to Scale</a></li>
                             <li><a href="#mobile-first" title="Mobile Friendly &amp; Mobile First">Mobile Friendly <span class="amp">&amp;</span> Mobile&nbsp;First</a></li>
+                            <li><a href="#less-sass" title="LESS &amp; SASS Support"><span class="caps">LESS</span> <span class="amp">&amp;</span> <span class="caps">SASS</span> Support</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#usage" title="Usage">Usage</a>
                         <ul>
-                            <li><a href="#column-markup" title="Column Markup">Column Markup</a></li>
-                            <li><a href="#column-offsets" title="Column Offsets">Column Offsets</a></li>
+                            <li><a href="#as-grid" title="As a grid system">As a Grid System</a></li>
+                            <li><a href="#as-mixins" title="As mixins">As Mixins</a></li>
                         </ul>
                     </li>
                     <li class="demo"><a href="demo.html" title="View the Demo">View the Demo</a></li>
@@ -58,76 +63,37 @@
 
             <article id="main" role="main" class="columns three-fourths">
                 <h2 id="what-does-it-do">What does it do?</h2>
-                <p><span class="caps">CSS</span> Smart Grid builds on the popular <a href="http://960.gs" title="960 Grid System">960 grid concept</a>, mixing in responsive grids that are <a href="http://www.abookapart.com/products/mobile-first" title="Mobile First from A Book Apart">“mobile first”</a>. It is built on three concepts:</p>
+                <p><span class="caps">CSS</span> Smart Grid builds on the popular <a href="http://960.gs" title="960 Grid System">960 grid concept</a>, mixing in responsive grids that are <a href="http://www.abookapart.com/products/mobile-first" title="Mobile First from A Book Apart">“mobile first”</a>. It is built on four concepts:</p>
                 <ol>
                     <li>
                         <h3 id="performance-driven">Performance Driven</h3>
-                        <p><span class="caps">CSS</span> Smart Grid was engineered to be lightweight. <a href="http://developer.yahoo.com/performance/rules.html" title="Learn about gzipping your assets">Minified and gzipped</a>, it weighs in at only&nbsp;1.2K.</p>
-                        <p>It does not require the use of polyfills to work in <span class="caps">IE</span>&nbsp;8. Instead, <span class="caps">CSS</span> Smart Grid uses a class of "oldie" set via <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/" title="Learn more about condition <html> tags">Paul Irish's conditional <code>&lt;html&gt;</code> syntax</a> (as seen in <a href="http://html5boilerplate.com/" title="HTML5 Boilerplate"><span class="caps">HTML5</span> Boilerplate</a>) to give <span class="caps">IE</span> 8 the default 960 pixel version of the grid.</p>
-                        <p><span class="caps">IE</span> 7 and lower are not officially supported.</p>
+                        <p><span class="caps">CSS</span> Smart Grid was engineered to be lightweight. <a href="http://developer.yahoo.com/performance/rules.html" title="Learn about gzipping your assets">Minified and gzipped</a>, it weighs in at only&nbsp;0.67K.</p>
+                        <p>It does not require the use of polyfills to work in <span class="caps">IE</span>&nbsp;7-8. Instead, <span class="caps">CSS</span> Smart Grid can use a class of "oldie" or "lt-ie9" set via <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/" title="Learn more about condition <html> tags">Paul Irish's conditional <code>&lt;html&gt;</code> syntax</a> (as seen in <a href="http://html5boilerplate.com/" title="HTML5 Boilerplate"><span class="caps">HTML5</span> Boilerplate</a>) to give <span class="caps">IE</span> 8 the default 960 pixel version of the grid.</p>
+                        <p><span class="caps">IE</span> 7 and lower are not officially supported. In version 3+, <span class="caps">IE</span> support is not included by default. If you wish to use it, uncomment the final section of <code>smart-grid.less</code> and recompile.</p>
                     </li>
                     <li>
                         <h3 id="built-to-scale">Built to Scale</h3>
-                        <p><span class="caps">CSS</span> Smart Grid supports devices as narrow as 320 pixels all the way up to 1920 pixel wide HD&nbsp;displays. The grid is based on 12 columns with 20 pixel gutters. The width of the columns varies along the five breakpoints:</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td class="icon">&nbsp;</td>
-                                    <th scope="col">Platform</th>
-                                    <th scope="col">&nbsp;</th>
-                                    <th scope="col">Min&nbsp;Pixels</th>
-                                    <th scope="col">Column&nbsp;Width</th>
-                                </tr>
-                            <tbody>
-                                <tr>
-                                    <td class="icon"><img src="images/icon-iphone.png" width="16" height="28" alt=""></td>
-                                    <th scope="row">Mobile</th> 
-                                    <td>&nbsp;</td>
-                                    <td class="num">0</td>
-                                    <td class="num">full</td>
-                                </tr>
-                                <tr>
-                                    <td class="icon"><img src="images/icon-ipad.png" width="22" height="28" alt=""></td>
-                                    <th scope="row">Tablet</th>
-                                    <td>Portrait</td> 
-                                    <td class="num">768</td>
-                                    <td class="num">44</td>
-                                </tr>
-                                <tr>
-                                    <td class="icon"><img src="images/icon-desktop.png" width="22" height="20" alt=""></td>
-                                    <th scope="row">Desktop</th>
-                                    <td>&nbsp;</td> 
-                                    <td class="num">960</td>
-                                    <td class="num">60</td>
-                                </tr>
-                                <tr>
-                                    <td class="icon"><img src="images/icon-widescreen.png" width="30" height="19" alt=""></td>
-                                    <th scope="row">Desktop</th>
-                                    <td>Widescreen</td> 
-                                    <td class="num">1200</td>
-                                    <td class="num">80</td>
-                                </tr>
-                                <tr>
-                                    <td class="icon"><img src="images/icon-hd.png" width="30" height="19" alt=""></td>
-                                    <th scope="row">Desktop</th>
-                                    <td><span class="caps">HD</span> 1080p</td> 
-                                    <td class="num">1920</td>
-                                    <td class="num">140</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <p><span class="caps">CSS</span> Smart Grid version 3 was completely rebuilt from the ground up to use percentage-based flexible columns and gutters. When the browser is at least 960 pixels wide, columns will be 60 pixels wide with 20 pixel gutters. Browsers from 481-959 pixels wide will scale to fit while smaller screens get full width columns. If you want to support larger layouts, its as simple as changing one variable.</p>
                         <p>This page uses <span class="caps">CSS</span> Smart Grid; resize your browser to see it in action.</p>
                     </li>
                     <li>
                         <h3 id="mobile-first">Not Just Mobile Friendly, But Mobile&nbsp;First</h3>
                         <p>On mobile devices every kilobyte of bandwidth and every <span class="caps">CPU</span> cycle used to render a page counts. With that in mind, <span class="caps">CSS</span> Smart Grid uses mobile as its <em>default</em> layout. Mobile browsers that don't understand <code>@media</code> queries aren't left in the dust, they are first-class citizens. And because there's no need for polyfills on older browsers, even feature phone handsets will receive a single column&nbsp;view.</p>
                     </li>
+                    <li>
+                        <h3 id="less-sass"><span class="caps">LESS</span> <span class="amp">&amp;</span> <span class="caps">SASS</span> Support</h3>
+                        <p>Version 3 was rewritten in the <a href="http://lesscss.org" title="Learn about LESS"><span class="caps">LESS CSS</span> compiler</a>. Version 4 added a <a href="http://sass-lang.com/" title="Learn about SASS"><span class="caps">SASS</span></a> version as well. These gives you ultimate flexibility in how you choose to use the system. You can simply include the minified <span class="caps">CSS</span> file in your project or use the core components as mixins for your custom styles.</p>
+                    </li>
                 </ol>
-                
+
                 <h2 id="usage">How to Use It</h2>
-                
-                <p>There's only one <span class="caps">CSS</span> file to include: <code>smart-grid.css</code>. Place that in <code>&lt;head&gt;</code> <em>before</em> your own stylesheet.</p>
-                <p>Wrap your page inside a <code>&lt;div class="container"&gt;</code>. If you want to support larger screens, use <code>&lt;div class="container large"&gt;</code> or for <span class="caps">HD</span> screens use <code>&lt;div class="container hd"&gt;</code>. Note that you can use more than one container if your need calls for it:</p>
+
+                <ol>
+                    <li>
+                        <h3 id="as-grid">As a Grid System</h3>
+
+                        <p>There's only one <span class="caps">CSS</span> file to include: <code>smart-grid.css</code>. Place that in <code>&lt;head&gt;</code> <em>before</em> your own stylesheet.</p>
+                        <p>Wrap your page inside a <code>&lt;div class="container"&gt;</code>. Note that you can use more than one container if your need calls for it:</p>
 
 <div class="highlight"><pre><span class="nt">&lt;header</span> <span class="na">id=</span><span class="s">&quot;hd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
@@ -142,9 +108,9 @@
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 
-                <h3 id="column-markup">Column Markup</h3>
-                <p>Grid columns are achieved by adding a <code>column</code> class to any element. By default, anything with the <code>column</code> class is one column wide. For wider columns, add a class matching the number of columns you want the element to be: <code>two</code>, <code>four</code>, etc. Additionally, there are several shorthand classes for common use cases: <code>one-fourth</code>, <code>three-fourths</code>, <code>one-third</code>, <code>two-thirds</code>, <code>one-fifth</code>, <code>two-fifths</code>, <code>three-fifths</code>, <code>four-fifths</code> and <code>one-half</code>. Group rows of columns together under a parent element with the class <code>row</code> to make sure all of the floats are cleared.</p>
-                
+                <h4 id="column-markup">Column Markup</h4>
+                <p>Grid columns are achieved by adding a <code>column</code> class to any element. By default, anything with the <code>column</code> class is one column wide. For wider columns, add a class matching the number of columns you want the element to be: <code>two</code>, <code>four</code>, etc. Additionally, there are several shorthand classes for common use cases: <code>one-fourth</code>, <code>three-fourths</code>, <code>one-third</code>, <code>two-thirds</code>, and <code>one-half</code>. Group rows of columns together under a parent element with the class <code>row</code> to make sure all of the floats are cleared.</p>
+
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;columns two-thirds&quot;</span><span class="nt">&gt;</span>
@@ -156,10 +122,10 @@
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .row --&gt;</span>
 <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
 </pre></div>
-    
-                <p>If you only have one row of columns in a container, you can use the same element for both classes:</p>
-                
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container row&quot;</span><span class="nt">&gt;</span>
+
+                <p>If you only have one row of columns in a container, you can ommit the row:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span> <span class="na">role=</span><span class="s">&quot;main&quot;</span> <span class="na">class=</span><span class="s">&quot;columns two-thirds&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p&gt;</span>The beginning of the best article in the history of humanity.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/article&gt;</span>
@@ -168,11 +134,11 @@
     <span class="nt">&lt;/aside&gt;</span>
 <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- end .container --&gt;</span>
 </pre></div>
-                
-                <h3 id="column-offsets">Column Offsets</h3>
+
+                <h4 id="column-offsets">Column Offsets</h4>
 
                 <p>Sometimes you need a blank column between content. Rather than add superfluous markup, you can add one of the <code>offset-xxxxx</code> classes to the element you want to push left. There are classes defined to offset anywhere from 1 (<code>offset-one</code>) to 11 (<code>offset-eleven</code>) columns. Note that the offsets work by padding the element they're placed on; if you change the padding in your own <span class="caps">CSS</span>, the offsets will not work. Just like their column counterparts, offsets only take effect in browsers that are at least 768 pixels wide.</p>
-                
+
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container row&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;columns two offset-two&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p&gt;</span>There are two blank columns to the left of this one.<span class="nt">&lt;/p&gt;</span>
@@ -184,8 +150,39 @@
 </pre></div>
 
                 <p>You can mix and match columns and offsets however you want as long as the offset and column numbers add up to 12. To see it all working together, <a href="demo.html" title="View the demo">view the demo</a>.</p>
+                </li>
+                <li>
+                    <h3 id="as-mixins">As <span class="caps">LESS</span> or <span class="caps">SASS</span> mixins</h3>
+                    <p>We all know that semantic markup is best; using the Smart Grid as <span class="caps">LESS</span> mixins allows you to forgo adding additional classes to your markup. The Smart Grid provides three core mixins: <code>.column()</code> which handles the default rules like floating and margins, <code>.columns(number)</code> which sets the width based on the number you pass in, and <code>.offset(number)</code> which adds a margin-based offset to the element.</p>
+                    <h4><span class="caps">LESS</span> Example</h4>
+<div class="highlight"><pre>@import "smart-grid-columns";
+article {
+    .column;
+    .columns(8);
+}
+aside {
+    .column;
+    .columns(3);
+    .offset(1);
+}
+</pre></div>
+                    <h4><span class="caps">SASS</span> Example</h4>
+<div class="highlight"><pre>@import "smart-grid-columns";
+article {
+    @include column;
+    @include columns(8);
+}
+aside {
+    @include column;
+    @include columns(3);
+    @include offset(1);
+}
+</pre></div>
+                    <p>Note that you'll still need to clear floats on the parent element. You can either <code>@import "smart-grid-containers";</code> into your file and use the <code>.container</code> and <code>.row</code> classes in your markup or use any float-clearing method of your choice.</p>
+                </li>
+            </ol>
             </article><!-- end #main -->
-            
+
             <footer id="ft" role="contentinfo">
                 <p class="columns one-fourth"><strong>Acknowledgments</strong></p>
                 <ul class="columns three-fourths">
@@ -198,15 +195,23 @@
                 <p class="license"><strong class="columns one-fourth">License</strong> <a rel="license" class="columns three-fourths" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">BSD 3-Clause License</a></p>
             </footer><!-- end #ft -->
         </div><!-- end #content -->
-        <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-3625251-12', 'dryan.github.io');
-  ga('send', 'pageview');
-
-</script>
+        <script type="text/javascript">
+          var _sf_async_config = { uid: 43815, domain: 'dryan.com' };
+          (function() {
+            function loadChartbeat() {
+              window._sf_endpt = (new Date()).getTime();
+              var e = document.createElement('script');
+              e.setAttribute('language', 'javascript');
+              e.setAttribute('type', 'text/javascript');
+              e.setAttribute('src',
+                (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                "js/chartbeat.js");
+              document.body.appendChild(e);
+            };
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ?
+              loadChartbeat : function() { oldonload(); loadChartbeat(); };
+          })();
+        </script>
     </body>
 </html>
