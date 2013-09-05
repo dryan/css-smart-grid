@@ -5,16 +5,16 @@
 @import "smart-grid-columns";
 
 .container {
-    .container;
+    @include container;
 }
 
 .container,
 .row {
-    .clearfix;
+    @include clearfix;
 }
 
-@media (min-width:@columnsBreakPoint) {
-    .column-set;
+@media (min-width:$columnsBreakPoint) {
+    @include column-set;
 }
 /*
  * uncomment this section for IE support
@@ -22,6 +22,6 @@
  /*
 html.oldie,
 html.lt-ie9 {
-    .column-set;
+    @include column-set;
 }
 */

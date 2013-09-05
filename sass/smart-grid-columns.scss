@@ -1,0 +1,98 @@
+@import "smart-grid-variables";
+
+@mixin column() {
+    float: left;
+    margin: 0 0 0 $gutter;
+    width: $onecol;
+    &:first-child,
+    &.first {
+        margin-left: 0;
+    }
+}
+@mixin columns($count:1) {
+    width: ($onecol * $count) + ($gutter * ($count - 1));
+}
+@mixin offset($columns:1) {
+    margin-left: ($onecol * $columns) + ($gutter * ($columns + 1));
+    &:first-child,
+    &.first {
+        margin-left: ($onecol * $columns) + ($gutter * $columns);
+    }
+}
+@mixin column-set() {
+    .columns {
+        @include column;
+        &.two {
+            @include columns(2);
+        }
+        &.three,
+        &.one-fourth {
+            @include columns(3);
+        }
+        &.four,
+        &.one-third {
+            @include columns(4);
+        }
+        &.five {
+            @include columns(5);
+        }
+        &.six,
+        &.one-half {
+            @include columns(6);
+        }
+        &.seven {
+            @include columns(7);
+        }
+        &.eight,
+        &.two-thirds {
+            @include columns(8);
+        }
+        &.nine,
+        &.three-fourths {
+            @include columns(9);
+        }
+        &.ten {
+            @include columns(10);
+        }
+        &.eleven {
+            @include columns(11);
+        }
+        &.twelve,
+        &.full {
+            @include columns(12);
+        }
+        &.offset-one {
+            @include offset(1);
+        }
+        &.offset-two {
+            @include offset(2);
+        }
+        &.offset-three {
+            @include offset(3);
+        }
+        &.offset-four {
+            @include offset(4);
+        }
+        &.offset-five {
+            @include offset(5);
+        }
+        &.offset-six {
+            @include offset(6);
+        }
+        &.offset-seven {
+            @include offset(7);
+        }
+        &.offset-eight {
+            @include offset(8);
+        }
+        &.offset-nine {
+            @include offset(9);
+        }
+        &.offset-ten {
+            @include offset(10);
+        }
+        &.offset-eleven {
+            @include offset(11);
+        }
+    }
+}
