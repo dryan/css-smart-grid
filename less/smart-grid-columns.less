@@ -10,13 +10,13 @@
     }
 }
 .columns(@count:1) {
-    width: (@onecol * @count) + (@gutter * (@count - 1));
+    width: round((@onecol * @count) + (@gutter * (@count - 1)), 5);
 }
 .offset(@columns:1) {
-    margin-left: (@onecol * @columns) + (@gutter * (@columns + 1));
+    margin-left: round((@onecol * @columns) + (@gutter * (@columns + 1)), 5);
     &:first-child,
     &.first {
-        margin-left: (@onecol * @columns) + (@gutter * @columns);
+        margin-left: round((@onecol * @columns) + (@gutter * @columns), 5);
     }
 }
 .column-set() {
