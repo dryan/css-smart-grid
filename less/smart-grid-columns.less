@@ -4,8 +4,7 @@
     float: left;
     margin: 0 0 0 @gutter;
     width: @onecol;
-    &:first-child,
-    &.first {
+    &:first-child {
         margin-left: 0;
     }
 }
@@ -14,8 +13,7 @@
 }
 .offset(@columns:1) {
     margin-left: round((@onecol * @columns) + (@gutter * (@columns + 1)), 5);
-    &:first-child,
-    &.first {
+    &:first-child {
         margin-left: round((@onecol * @columns) + (@gutter * @columns), 5);
     }
 }
