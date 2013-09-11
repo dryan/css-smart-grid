@@ -23,4 +23,10 @@ $flexbox_support: false;
 @media (min-width:$columnsBreakPoint) {
     @include column-set;
 }
-*/
+
+// uncomment this section for IE support
+// html.oldie,
+// html.lt-ie9,
+// html.no-mq {
+//     @include column-set;
+// }
