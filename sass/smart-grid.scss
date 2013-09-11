@@ -13,15 +13,13 @@
     @include clearfix;
 }
 
-@media (min-width:$columnsBreakPoint) {
-    @include column-set;
+@if $flexbox_support == true {
+	.row {
+		@extend %flexbox_row;
+	}
 }
-/*
- * uncomment this section for IE support
- */
- /*
-html.oldie,
-html.lt-ie9 {
+
+@media (min-width:$columnsBreakPoint) {
     @include column-set;
 }
 */

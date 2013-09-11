@@ -7,6 +7,11 @@
     &:first-child {
         margin-left: 0;
     }
+    @if $flexbox_support == true {
+        html.flexbox &  {
+            float: none;
+        }
+    }
 }
 @mixin columns($count:1) {
     width: ($onecol * $count) + ($gutter * ($count - 1));
