@@ -47,7 +47,7 @@
                             <li><a href="#performance-driven" title="Performance Driven">Performance Driven</a></li>
                             <li><a href="#built-to-scale" title="Built to Scale">Built to Scale</a></li>
                             <li><a href="#mobile-first" title="Mobile Friendly &amp; Mobile First">Mobile Friendly <span class="amp">&amp;</span> Mobile&nbsp;First</a></li>
-                            <li><a href="#less-sass" title="LESS &amp; SASS Support"><span class="caps">LESS</span> <span class="amp">&amp;</span> <span class="caps">SASS</span> Support</a></li>
+                            <li><a href="#sass" title="SASS Support"><span class="caps">SASS</span> Support</a></li>
                         </ul>
                     </li>
                     <li>
@@ -69,7 +69,7 @@
                         <h3 id="performance-driven">Performance Driven</h3>
                         <p><span class="caps">CSS</span> Smart Grid was engineered to be lightweight. <a href="http://developer.yahoo.com/performance/rules.html" title="Learn about gzipping your assets">Minified and gzipped</a>, it weighs in at only&nbsp;0.65K.</p>
                         <p>It does not require the use of polyfills to work in <span class="caps">IE</span>&nbsp;7-8. Instead, <span class="caps">CSS</span> Smart Grid can use a class of "oldie" or "lt-ie9" set via <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/" title="Learn more about condition <html> tags">Paul Irish's conditional <code>&lt;html&gt;</code> syntax</a> (as seen in <a href="http://html5boilerplate.com/" title="HTML5 Boilerplate"><span class="caps">HTML5</span> Boilerplate</a>) to give <span class="caps">IE</span> 8 the default 960 pixel version of the grid.</p>
-                        <p><span class="caps">IE</span> 7 and lower are not officially supported. In version 3+, <span class="caps">IE</span> support is not included by default. If you wish to use it, uncomment the final section of <code>smart-grid.less</code> and recompile.</p>
+                        <p><span class="caps">IE</span> 7 and lower are not officially supported. In version 3+, <span class="caps">IE</span> support is not included by default. If you wish to use it, uncomment the final section of <code>smart-grid.scss</code> and recompile.</p>
                     </li>
                     <li>
                         <h3 id="built-to-scale">Built to Scale</h3>
@@ -81,8 +81,8 @@
                         <p>On mobile devices every kilobyte of bandwidth and every <span class="caps">CPU</span> cycle used to render a page counts. With that in mind, <span class="caps">CSS</span> Smart Grid uses mobile as its <em>default</em> layout. Mobile browsers that don't understand <code>@media</code> queries aren't left in the dust, they are first-class citizens. And because there's no need for polyfills on older browsers, even feature phone handsets will receive a single column&nbsp;view.</p>
                     </li>
                     <li>
-                        <h3 id="less-sass"><span class="caps">LESS</span> <span class="amp">&amp;</span> <span class="caps">SASS</span> Support</h3>
-                        <p>Version 3 was rewritten in the <a href="http://lesscss.org" title="Learn about LESS"><span class="caps">LESS CSS</span> compiler</a>. Version 4 added a <a href="http://sass-lang.com/" title="Learn about SASS"><span class="caps">SASS</span></a> version as well. These gives you ultimate flexibility in how you choose to use the system. You can simply include the minified <span class="caps">CSS</span> file in your project or use the core components as mixins for your custom styles.</p>
+                        <h3 id="sass"><span class="caps">SASS</span> Support</h3>
+                        <p>Version 4 drops support for <span class="caps">LESS</span> in favor of <a href="http://sass-lang.com/" title="Learn about SASS"><span class="caps">SASS</span></a>. This gives you ultimate flexibility in how you choose to use the system. You can simply include the minified <span class="caps">CSS</span> file in your project or use the core components as mixins for your custom styles.</p>
                     </li>
                 </ol>
 
@@ -152,20 +152,8 @@
                 <p>You can mix and match columns and offsets however you want as long as the offset and column numbers add up to 12. To see it all working together, <a href="demo.html" title="View the demo">view the demo</a>.</p>
                 </li>
                 <li>
-                    <h3 id="as-mixins">As <span class="caps">LESS</span> or <span class="caps">SASS</span> mixins</h3>
-                    <p>We all know that semantic markup is best; using the Smart Grid as <span class="caps">LESS</span> mixins allows you to forgo adding additional classes to your markup. The Smart Grid provides three core mixins: <code>.column()</code> which handles the default rules like floating and margins, <code>.columns(number)</code> which sets the width based on the number you pass in, and <code>.offset(number)</code> which adds a margin-based offset to the element.</p>
-                    <h4><span class="caps">LESS</span> Example</h4>
-<div class="highlight"><pre>@import "smart-grid-columns";
-article {
-    .column;
-    .columns(8);
-}
-aside {
-    .column;
-    .columns(3);
-    .offset(1);
-}
-</pre></div>
+                    <h3 id="as-mixins">As <span class="caps">SASS</span> mixins</h3>
+                    <p>We all know that semantic markup is best; using the Smart Grid as <span class="caps">SASS</span> mixins allows you to forgo adding additional classes to your markup. The Smart Grid provides three core mixins: <code>.column()</code> which handles the default rules like floating and margins, <code>.columns(number)</code> which sets the width based on the number you pass in, and <code>.offset(number)</code> which adds a margin-based offset to the element.</p>
                     <h4><span class="caps">SASS</span> Example</h4>
 <div class="highlight"><pre>@import "smart-grid-columns";
 article {
