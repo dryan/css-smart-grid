@@ -16,7 +16,7 @@ $flexbox_support: false;
 
 @if $flexbox_support == true {
 	.row {
-		@extend %flexbox_row;
+		@include flexbox_row;
 	}
 }
 

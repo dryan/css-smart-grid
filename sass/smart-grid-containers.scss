@@ -1,7 +1,7 @@
 @import "smart-grid-variables";
 @import "smart-grid-mixins";
 
-%flexbox_row {
+@mixin flexbox_row() {
     html.flexbox & {
         display:    -moz-flex;
         display:     -ms-flex; // one day, maybe
