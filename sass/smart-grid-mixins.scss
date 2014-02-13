@@ -1,0 +1,12 @@
+@import "smart-grid-variables";
+
+// lovingly borrowed from bourbon.io
+@mixin prefixer($property, $value, $prefixes) {
+	@each $prefix in $prefixes {
+		@if $prefix == spec {
+			#{$property}: $value;
+		} @else {
+			-#{$prefix}-#{$property}: $value;			
+		}
+	}
+}

@@ -1,0 +1,48 @@
+@import "smart-grid-variables";
+
+@mixin column() {
+    float: left;
+    margin: 0 0 0 $gutter;
+    width: $onecol;
+    &:first-child {
+        margin-left: 0;
+    }
+    @if $flexbox_support == true {
+        html.flexbox &  {
+            float: none;
+        }
+    }
+}
+@mixin columns($count:1) {
+    width: ($onecol * $count) + ($gutter * ($count - 1));
+}
+@mixin offset($columns:1) {
+    margin-left: ($onecol * $columns) + ($gutter * ($columns + 1));
+    &:first-child {
+        margin-left: ($onecol * $columns) + ($gutter * $columns);
+    }
+}
+
+@mixin column-set() {
+    .columns {
+        @include column;
+        @each $i in $columnList {
+            $selectors: ();
+            @for $j from 2 to length($i) + 1 {
+                $selectors: $selectors, unquote("&.#{nth($i, $j)}");
+            }
+            #{$selectors} {
+                @include columns(nth($i, 1));
+            }
+        }
+        @each $i in $offsetList {
+            $selectors: ();
+            @for $j from 2 to length($i) + 1 {
+                $selectors: $selectors, unquote("&.offset-#{nth($i, $j)}");
+            }
+            #{$selectors} {
+                @include offset(nth($i, 1));
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@import "smart-grid-variables";
+@import "smart-grid-mixins";
+
+@mixin flexbox_row() {
+    html.flexbox & {
+        @media (min-width:$columnsBreakPoint) {
+            display:    -moz-flex;
+            display:     -ms-flex; // one day, maybe
+            display:     -ms-flexbox;
+            display: -webkit-flex;
+            display:         flex;
+            @include prefixer(flex, 1 1 auto, webkit moz ms spec);
+            @include prefixer(flex-flow, row nowrap, webkit moz ms spec);
+            @include prefixer(align-items, flex-start, webkit moz ms);
+            flex-align: flex-start;
+            @include prefixer(justify-content, flex-start, webkit moz ms spec);
+            width: 100%;
+        }
+    }
+}
+
+@mixin container() {
+    max-width: $containerMaxWidth;
+    padding: 0 $gutter/2;
+    margin: 0 auto;
+}
+
+@mixin clearfix() {
+    zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
