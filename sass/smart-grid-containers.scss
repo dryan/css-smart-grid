@@ -3,17 +3,19 @@
 
 @mixin flexbox_row() {
     html.flexbox & {
-        display:    -moz-flex;
-        display:     -ms-flex; // one day, maybe
-        display:     -ms-flexbox;
-        display: -webkit-flex;
-        display:         flex;
-        @include prefixer(flex, 1 1 auto, webkit moz ms spec);
-        @include prefixer(flex-flow, row nowrap, webkit moz ms spec);
-        @include prefixer(align-items, flex-start, webkit moz ms);
-        flex-align: flex-start;
-        @include prefixer(justify-content, flex-start, webkit moz ms spec);
-        width: 100%;
+        @media (min-width:$columnsBreakPoint) {
+            display:    -moz-flex;
+            display:     -ms-flex; // one day, maybe
+            display:     -ms-flexbox;
+            display: -webkit-flex;
+            display:         flex;
+            @include prefixer(flex, 1 1 auto, webkit moz ms spec);
+            @include prefixer(flex-flow, row nowrap, webkit moz ms spec);
+            @include prefixer(align-items, flex-start, webkit moz ms);
+            flex-align: flex-start;
+            @include prefixer(justify-content, flex-start, webkit moz ms spec);
+            width: 100%;
+        }
     }
 }
 
