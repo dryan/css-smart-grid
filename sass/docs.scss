@@ -45,10 +45,35 @@ h4 {
     font-weight: 500;
 }
 
+.button {
+    @include inline-block;
+    padding: 10px 18px;
+    background: $purple;
+    color: $white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
 #hd {
     background: $purple;
     color: $white;
     text-align: center;
+    h1 {
+        margin: 0;
+    }
+    .tagline {
+        margin: 1em auto;
+        @media (min-width: 481px) {
+            margin-bottom: 0;
+        }
+    }
+    .button {
+        background: $white;
+        color: $purple;
+    }
 }
 
 #brand {

@@ -28,19 +28,18 @@
             <div class="container">
                 <h1><a href="/" title="Homepage" id="brand"><span class="caps">CSS</span> Smart Grid</a></h1>
                 <p class="tagline">Lightweight, Responsive <span class="amp">&amp;</span> Mobile First</p>
-                <nav>
-                    <ul>
-                        <li><a href="https://github.com/dryan/css-smart-grid/" title="Get it on Github" class="button">Get it on Github</a></li>
-                    </ul>
-                </nav>
+                <a href="https://github.com/dryan/css-smart-grid/" title="Get it on Github" class="button" id="fork-it">Get it on Github</a>
             </div><!-- end .container -->
         </header><!-- end #hd -->
 
-        <div class="container" id="content">
+        <div class="container row" id="content">
 
             {{ content }}
 
-            <footer id="ft" role="contentinfo">
+        </div><!-- end #content -->
+
+        <footer id="ft" role="contentinfo">
+            <div class="container">
                 <p class="columns one-fourth"><strong>Acknowledgments</strong></p>
                 <ul class="columns three-fourths">
                     <li><a href="http://960.gs/" title="960 Grid System">960 Grid System</a></li>
@@ -50,7 +49,7 @@
                     <li><a href="http://twitter.github.com/" title="Twitter Bootstrap">Twitter Bootstrap</a></li>
                 </ul>
                 <p class="license"><strong class="columns one-fourth">License</strong> <a rel="license" class="columns three-fourths" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">BSD 3-Clause License</a></p>
-            </footer><!-- end #ft -->
-        </div><!-- end #content -->
+            </div><!-- end .container -->
+        </footer><!-- end #ft -->
     </body>
 </html>
