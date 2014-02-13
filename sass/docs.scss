@@ -31,10 +31,21 @@ $purple:    #4d2f48;
 $gray:      #56565a;
 $silver:    #b8b6b9;
 
+$columnsBreakPoint:     768px;
+$containerMaxWidth:     1180px;
+@import "smart-grid";
+
 @import "normalize";
 
 html {
     overflow-y: scroll;
+    background: $charcoal;
+    color: $white;
+}
+
+body {
+    color: $charcoal;
+    background: $white;
 }
 
 h1,
@@ -43,6 +54,33 @@ h3,
 h4 {
     font-family: $serif;
     font-weight: 500;
+    color: $purple;
+}
+
+h2 {
+    margin-top: 0.83em * 2;
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    @media (max-width: $columnsBreakPoint - 1) {
+        padding: 0 20px;
+    }
+}
+
+a {
+    color: $orange;
+    text-decoration: none;
+    @include transition(color 0.25s);
+    &:hover,
+    &:focus,
+    &:active {
+        color: darken($orange, 10%);
+    }
 }
 
 .button {
@@ -58,15 +96,38 @@ h4 {
 }
 
 #hd {
+    font-size: 93.8%;
     background: $purple;
+    background-image: 
+      -webkit-linear-gradient(0deg, transparent .05em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+      -webkit-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+    background-image: 
+      -moz-linear-gradient(0deg, transparent .05em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+      -moz-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+    background-image: 
+      -ms-linear-gradient(0deg, transparent .05em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+      -ms-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+    background-image: 
+      -o-linear-gradient(0deg, transparent .05em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+      -o-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+    background-image: 
+      linear-gradient(0deg, transparent .05em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+      inear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+    background-size: .75em .75em;  
+    background-position: 0 -0.5em; 
     color: $white;
     text-align: center;
+    padding: 1.25em 0;
+    .container {
+        font-size: 16px;
+    }
     h1 {
         margin: 0;
     }
     .tagline {
         margin: 1em auto;
-        @media (min-width: 481px) {
+        font-size: em(14);
+        @media (min-width: 800px) {
             margin-bottom: 0;
         }
     }
@@ -74,11 +135,88 @@ h4 {
         background: $white;
         color: $purple;
     }
+    .home & {
+        @media (min-width: $columnsBreakPoint) {
+            .container {
+                font-size: 24px;
+            }
+            padding: 2.5em 0;
+        }
+    }
 }
 
 #brand {
     color: $white;
     text-decoration: none;
+}
+
+#fork-it {
+    @media (min-width: 800px) {
+        position: absolute;
+        right: $gutter;
+        top: -4px;
+    }
+}
+
+#main,
+#sb {
+    margin-top: 2em;
+}
+
+#sb {
+    @media (min-width: $columnsBreakPoint) {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 1em;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        ul {
+            margin: 0.5em 0 1em 2em;
+        }
+    }
+    li {
+        margin-top: 0.5em;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+#ft {
+    background: $charcoal;
+    color: $silver;
+    margin-top: 2em;
+    padding: 1em 0;
+    strong {
+        font-weight: 500;
+        font-family: $serif;
+        display: block;
+    }
+    a {
+        margin-right: 1em;
+        @include inline-block;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.demo {
+    #content {
+        b {
+            display: block;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background: $purple;
+            color: $white;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    }
 }
 
 @import "pygments";

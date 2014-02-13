@@ -13,7 +13,6 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
         <link rel="stylesheet" href="//cloud.typography.com/7855472/767342/css/fonts.css">
-        <link rel="stylesheet" href="/css/smart-grid-flexbox.css">
         <link rel="stylesheet" href="/css/docs.css">
 
         <script src="/js/modernizr.js"></script>
@@ -23,7 +22,7 @@
         </script>
     </head>
 
-    <body class="{{ page.page_class }} {{ page.url | slugify | replace: '/',' ' | replace: 'index.html','' }}">
+    <body class="{{ page.page_class }}">
         <header id="hd" role="banner">
             <div class="container">
                 <h1><a href="/" title="Homepage" id="brand"><span class="caps">CSS</span> Smart Grid</a></h1>
@@ -40,15 +39,22 @@
 
         <footer id="ft" role="contentinfo">
             <div class="container">
-                <p class="columns one-fourth"><strong>Acknowledgments</strong></p>
-                <ul class="columns three-fourths">
-                    <li><a href="http://960.gs/" title="960 Grid System">960 Grid System</a></li>
-                    <li><a hef="http://unstoppablerobotninja.com/" title="Ethan Marcotte">Ethan Marcotte</a></li>
-                    <li><a href="http://html5boilerplate.com/" title="HTML5 Boilerplate">HTML5 Boilerplate</a></li>
-                    <li><a href="http://getskeleton.com/" title="Skeleton CSS">Skeleton</a></li>
-                    <li><a href="http://twitter.github.com/" title="Twitter Bootstrap">Twitter Bootstrap</a></li>
-                </ul>
-                <p class="license"><strong class="columns one-fourth">License</strong> <a rel="license" class="columns three-fourths" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">BSD 3-Clause License</a></p>
+                <p class="row">
+                    <strong class="columns one-fourth">Acknowledgments</strong>
+                    <span class="columns three-fourths">
+                        <a href="http://960.gs/" title="960 Grid System">960 Grid System</a>
+                        <a hef="http://unstoppablerobotninja.com/" title="Ethan Marcotte">Ethan Marcotte</a>
+                        <a href="http://html5boilerplate.com/" title="HTML5 Boilerplate">HTML5 Boilerplate</a>
+                        <a href="http://getskeleton.com/" title="Skeleton CSS">Skeleton</a>
+                        <a href="http://twitter.github.com/" title="Twitter Bootstrap">Twitter Bootstrap</a>
+                    </span>
+                </p>
+                <p class="license row">
+                    <strong class="columns one-fourth">License</strong>
+                    <span class="columns three-fourths">
+                        <a rel="license" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">MIT License</a>
+                    </span>
+                </p>
             </div><!-- end .container -->
         </footer><!-- end #ft -->
     </body>
