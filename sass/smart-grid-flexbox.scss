@@ -1,8 +1,7 @@
-/*! smart-grid.css 5.0.0 | BSD License | http://dryan.com/css-smart-grid */
-
 @import "smart-grid-variables";
 @import "smart-grid-containers";
 @import "smart-grid-columns";
+/*! smart-grid.css #{$version} | BSD License | http://dryan.com/css-smart-grid */
 
 .container {
     @include container;

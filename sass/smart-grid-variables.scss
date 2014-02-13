@@ -18,3 +18,5 @@ $columnList:    (2, "two") (3, "three", "one-fourth") (4, "four", "one-third") (
 
 // a collection of the offsets you want to build. the first parameter must be an integer of how many columns wide this instance is offset, followed by 1 or more class names to apply this offset to.
 $offsetList:    (1, "one") (2, "two") (3, "three") (4, "four") (5, "five") (6, "six") (7, "seven") (8, "eight") (9, "nine") (10, "ten") (11, "eleven") !default;
+
+$version:       "5.1.0"
