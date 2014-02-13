@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//themes.googleusercontent.com/static/fonts/opensans/v7/DXI1ORHCpsQm3Vp6mXoaTaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(//themes.googleusercontent.com/static/fonts/opensans/v7/MTP_ySUJH_bn48VBG8sNSqRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans Light Italic'), local('OpenSansLight-Italic'), url(//themes.googleusercontent.com/static/fonts/opensans/v7/PRmiXeptR36kaC0GEAetxvR_54zmj3SbGZQh3vCOwvY.woff) format('woff');
+}
+@import "bourbon";
+
+$serif: 'Sentinel SSm A', 'Sentinel SSm B', $georgia;
+$sans: 'Open Sans', $helvetica;
+$normalized_font_family: $sans;
+
+$white:     #fff;
+$orange:    #f7941e;
+$charcoal:  #333;
+$black:     #000;
+$blue:      #98d1dd;
+$purple:    #4d2f48;
+$gray:      #56565a;
+$silver:    #b8b6b9;
+
+@import "normalize";
+
+html {
+    overflow-y: scroll;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $serif;
+    font-weight: 500;
+}
+
+#hd {
+    background: $purple;
+    color: $white;
+    text-align: center;
+}
+
+#brand {
+    color: $white;
+    text-decoration: none;
+}
+
+@import "pygments";

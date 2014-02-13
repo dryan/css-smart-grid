@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}CSS Smart Grid &mdash; A Lightweight, Responsive, Mobile First CSS Grid</title>
+        <meta name="description" content="{{ page.description }}">
+        <meta name="author" content="/humans.txt">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <link rel="stylesheet" href="//cloud.typography.com/7855472/767342/css/fonts.css">
+        <link rel="stylesheet" href="/css/smart-grid-flexbox.css">
+        <link rel="stylesheet" href="/css/docs.css">
+
+        <script src="/js/modernizr.js"></script>
+        <script>
+            var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-3625251-12"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();
+            var _gauges=_gauges||[];(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.id="gauges-tracker";a.setAttribute("data-site-id","4faf1bdff5a1f501f8000047");a.src="//secure.gaug.es/track.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();
+        </script>
+    </head>
+
+    <body class="{{ page.page_class }} {{ page.url | slugify | replace: '/',' ' | replace: 'index.html','' }}">
+        <header id="hd" role="banner">
+            <div class="container">
+                <h1><a href="/" title="Homepage" id="brand"><span class="caps">CSS</span> Smart Grid</a></h1>
+                <p class="tagline">Lightweight, Responsive <span class="amp">&amp;</span> Mobile First</p>
+                <nav>
+                    <ul>
+                        <li><a href="https://github.com/dryan/css-smart-grid/" title="Get it on Github" class="button">Get it on Github</a></li>
+                    </ul>
+                </nav>
+            </div><!-- end .container -->
+        </header><!-- end #hd -->
+
+        <div class="container" id="content">
+
+            {{ content }}
+
+            <footer id="ft" role="contentinfo">
+                <p class="columns one-fourth"><strong>Acknowledgments</strong></p>
+                <ul class="columns three-fourths">
+                    <li><a href="http://960.gs/" title="960 Grid System">960 Grid System</a></li>
+                    <li><a hef="http://unstoppablerobotninja.com/" title="Ethan Marcotte">Ethan Marcotte</a></li>
+                    <li><a href="http://html5boilerplate.com/" title="HTML5 Boilerplate">HTML5 Boilerplate</a></li>
+                    <li><a href="http://getskeleton.com/" title="Skeleton CSS">Skeleton</a></li>
+                    <li><a href="http://twitter.github.com/" title="Twitter Bootstrap">Twitter Bootstrap</a></li>
+                </ul>
+                <p class="license"><strong class="columns one-fourth">License</strong> <a rel="license" class="columns three-fourths" href="https://raw.github.com/dryan/css-smart-grid/master/LICENSE.txt" title="View the license">BSD 3-Clause License</a></p>
+            </footer><!-- end #ft -->
+        </div><!-- end #content -->
+    </body>
+</html>
