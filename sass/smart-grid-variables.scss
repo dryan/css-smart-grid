@@ -1,5 +1,20 @@
-$gutter:    percentage(20px/940px); // 20px at 960px wide container, accounting for a 1/2 gutter width padding on the left and right of the container
-$onecol:                6.3829787%; // 60px at 960px wide container
-$columnsBreakPoint:          481px !default; // set this to the minimum width you want the columns to take effect at
-$containerMaxWidth:          940px !default; // set this to the maximum width you want .container to have
-$flexbox_support: 			  true !default; // set this to true to include support for CSS Flexbox (modern syntax).
+// 20px at 960px wide container, accounting for a 1/2 gutter width padding on the left and right of the container
+$gutter:    percentage(20px/940px);
+
+// 60px at 960px wide container
+$onecol:                6.3829787%;
+
+// set this to the minimum width you want the columns to take effect at
+$columnsBreakPoint:          481px !default;
+
+// set this to the maximum width you want .container to have
+$containerMaxWidth:          940px !default;
+
+// set this to true to include support for CSS Flexbox (modern syntax).
+$flexbox_support: 			  true !default;
+
+// a collection of the columns you want to build. the first parameter must be an integer of how many columns wide this instance is, followed by 1 or more class names to apply this width to.
+$columnList:    (2, "two") (3, "three", "one-fourth") (4, "four", "one-third") (5, "five") (6, "six", "one-half") (7, "seven") (8, "eight", "two-thirds") (9, "nine", "three-fourths") (10, "ten") (11, "eleven") (12, "twelve", "full") !default;
+
+// a collection of the offsets you want to build. the first parameter must be an integer of how many columns wide this instance is offset, followed by 1 or more class names to apply this offset to.
+$offsetList:    (1, "one") (2, "two") (3, "three") (4, "four") (5, "five") (6, "six") (7, "seven") (8, "eight") (9, "nine") (10, "ten") (11, "eleven") !default;
