@@ -3,6 +3,7 @@ destination:    "./_site"
 permalink:      "/:categories/:title/"
 pygments:       true
 exclude:        ["README.md", ".DS_Store", "CNAME", "LICENSE.txt"]
+include: 	['.well-known', '.well-known/keybase.txt']
 owner-name:     "Daniel Ryan"
 owner-page:     "http://dryan.com/"
 owner-email:    "dryan@dryan.com"
