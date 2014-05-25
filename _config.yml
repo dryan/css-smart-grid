@@ -1,7 +1,7 @@
 baseurl:        "/"
 destination:    "./_site"
 permalink:      "/:categories/:title/"
-pygments:       true
+highlighter:    true
 exclude:        ["README.md", ".DS_Store", "CNAME", "LICENSE.txt", "node_modules", ".gitignore"]
 include: 	['.well-known', '.well-known/keybase.txt']
 owner-name:     "Daniel Ryan"
