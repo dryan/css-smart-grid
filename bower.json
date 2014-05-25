@@ -1,0 +1,23 @@
+{
+  "name": "css-smart-grid",
+  "version": "5.1.1",
+  "homepage": "http://css.gd/",
+  "authors": [
+    "Daniel Ryan <dryan@dryan.com>"
+  ],
+  "description": "Lightweight, Responsive, Mobile First Grid System",
+  "main": "sass/smart-grid.scss",
+  "keywords": [
+    "sass",
+    "css",
+    "grid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
