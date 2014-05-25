@@ -33,15 +33,15 @@ body {
         -webkit-transition: color 0.5s;
         transition: color 0.5s;
     }
-    
+
     a:hover {
         color: #f00;
     }
-    
+
     code {
         background-color: transparent;
     }
-    
+
     h1,
     h2,
     h3,
@@ -55,9 +55,9 @@ body {
         font-size: 110%;
         font-style: italic;
         font-weight: normal;
-        font-family:"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua",serif; 
+        font-family:"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua",serif;
     }
-    
+
     .caps {
         font-size: 0.92em;
     }
@@ -67,58 +67,58 @@ body {
         border-top: 10px solid #035E89;
         border-bottom: 1px solid #e5eff3;
     }
-    
+
         #hd .container {
             position: relative;
         }
-    
+
         #hd h1,
         #hd p {
             margin: 0;
         }
-        
+
         #hd h1 {
             font-size: 40px;
             line-height: 44px;
         }
-        
+
         #hd h1 a {
             color: inherit;
             font-weight: 500;
         }
-        
+
         #hd .tagline {
             font-weight: 500;
             color: #666;
         }
-        
+
         #hd nav {
             margin: 20px 0 0;
         }
-        
+
             #hd nav ul {
                 zoom: 1;
             }
-            
+
                 #hd nav ul li {
                     margin: 20px 10px 0 0;
                     display: inline;
                 }
-                
+
                     #hd nav ul li a {
                         margin: 0;
                     }
-                    
+
                         #hd nav ul li a b {
                             display: none;
                         }
-                        
+
 @media screen and (min-width:480px) {
                         #hd nav ul li a b {
                             display: inline;
                         }
 }
-                    
+
 @media screen and (min-width:768px) {
         #hd nav {
             position: absolute;
@@ -126,7 +126,7 @@ body {
             right: 0;
             margin: 0;
         }
-        
+
         #hd nav ul li.follow {
             margin-right: 0;
         }
@@ -135,12 +135,13 @@ body {
         #main h2:first-child {
             margin-top: -12px;
         }
-    
+
     #content {
-        padding: 20px 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
-    
-    
+
+
         #main footer {
             padding-top: 10px;
             margin-top: 10px;
@@ -150,30 +151,30 @@ body {
         #main footer p {
             font-size: 13px;
         }
-        
+
             #main footer p,
             #main footer ol {
                 margin-top: 0;
                 margin-bottom: 0;
             }
-            
+
         #main table {
             margin: 20px 0;
             font-size: 14px;
         }
-        
+
             #main table th {
                 text-align: left;
             }
-            
+
             #main table td.num {
                 text-align: right;
             }
-            
+
             #main table td.icon {
                 text-align: center;
             }
-            
+
             #main table tbody tr:nth-child(1n) th,
             #main table tbody tr:nth-child(1n) td {
                 border-color: #ccc;
@@ -187,7 +188,7 @@ body {
             #main table tbody tr:nth-child(odd) td {
                 background: #fdfdfd;
             }
-            
+
             #main table thead th,
             #main table thead td {
                 background: #444;
@@ -195,7 +196,7 @@ body {
                 border: none;
                 text-shadow: 0 -1px 1px black;
             }
-            
+
 @media screen and (max-width:479px) {
             #main table td.icon,
             #main table thead th:nth-child(3),
@@ -207,32 +208,32 @@ body {
     #sb {
         margin-bottom: 20px;
     }
-            
+
     #sb,
     #sb a {
         color: #aaa;
     }
-    
+
         #sb a:hover {
             color: #f00;
         }
-    
+
         #sb ul {
         }
-        
+
             #sb ul li {
                 margin: 0 0 10px;
             }
-        
+
             #sb ul ul {
                 margin-left: 2em;
                 margin-top: 10px;
             }
-            
+
                 #sb ul ul li {
                     list-style: disc;
                 }
-            
+
     #ft {
         padding: 40px 0 20px;
         clear: both;
@@ -240,24 +241,24 @@ body {
         color: #999;
         overflow: hidden;
     }
-    
+
         #ft a {
             color: #999;
         }
-    
+
         #ft p {
             font-size: 13px;
         }
-    
+
         #ft ul {
         }
-        
+
             #ft ul li {
                 list-style: none;
                 display: inline;
                 margin: 0 10px 0 0;
             }
-            
+
 @media screen and (min-width:768px) {
         #ft .one-fourth {
             text-align: right;
