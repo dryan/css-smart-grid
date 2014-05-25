@@ -10,7 +10,8 @@ module.exports  =   function(grunt) {
             },
             options: {
                 sourcemap: true,
-                style: 'compressed'
+                style: 'compressed',
+                banner: '/*! <%= pkg.name %> <%= pkg.version %> | <%= pkg.license %> | <%= pkg.homepage %> */'
             }
         },
         watch: {
@@ -18,10 +19,25 @@ module.exports  =   function(grunt) {
                 files: 'sass/*.scss',
                 tasks: ['sass']
             }
+        },
+        bump: {
+            options: {
+                files: ['package.json', 'bower.json'],
+                commit: true,
+                commitMessage: 'Release %VERSION%',
+                commitFiles: ['package.json', 'bower.json'],
+                createTag: true,
+                tagName: '%VERSION%',
+                tagMessage: 'Release %VERSION%',
+                push: false,
+                pushTo: 'origin'
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-bump');
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['sass']);
+    grunt.registerTask('rev:patch', ['bump-only:patch', 'sass', 'bump-commit']);
 };
