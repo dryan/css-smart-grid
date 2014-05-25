@@ -25,11 +25,11 @@ module.exports  =   function(grunt) {
                 files: ['package.json', 'bower.json'],
                 commit: true,
                 commitMessage: 'Release %VERSION%',
-                commitFiles: ['package.json', 'bower.json'],
+                commitFiles: ['package.json', 'bower.json', 'sass/*', 'css/*'],
                 createTag: true,
                 tagName: '%VERSION%',
                 tagMessage: 'Release %VERSION%',
-                push: false,
+                push: true,
                 pushTo: 'origin'
             }
         }
@@ -40,4 +40,7 @@ module.exports  =   function(grunt) {
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['sass']);
     grunt.registerTask('rev:patch', ['bump-only:patch', 'sass', 'bump-commit']);
+    grunt.registerTask('rev:minor', ['bump-only:minor', 'sass', 'bump-commit']);
+    grunt.registerTask('rev:major', ['bump-only:major', 'sass', 'bump-commit']);
+    grunt.registerTask('rev',       ['rev:patch']);
 };
