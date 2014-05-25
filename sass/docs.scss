@@ -84,7 +84,7 @@ a {
 }
 
 .button {
-    @include inline-block;
+    display: inline-block;
     padding: 10px 18px;
     background: $purple;
     color: $white;
@@ -197,7 +197,7 @@ a {
     }
     a {
         margin-right: 1em;
-        @include inline-block;
+        display: inline-block;
         &:last-child {
             margin-right: 0;
         }
