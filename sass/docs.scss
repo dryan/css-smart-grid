@@ -31,8 +31,8 @@ $purple:    #4d2f48;
 $gray:      #56565a;
 $silver:    #b8b6b9;
 
-$columnsBreakPoint:     768px;
-$containerMaxWidth:     1180px;
+$columns-break-point:     768px;
+$container-max-width:     1180px;
 @import "smart-grid";
 
 @import "normalize";
@@ -67,7 +67,7 @@ h2 {
 .container {
     position: relative;
     z-index: 1;
-    @media (max-width: $columnsBreakPoint - 1) {
+    @media (max-width: $columns-break-point - 1) {
         padding: 0 20px;
     }
 }
@@ -136,7 +136,7 @@ a {
         color: $purple;
     }
     .home & {
-        @media (min-width: $columnsBreakPoint) {
+        @media (min-width: $columns-break-point) {
             .container {
                 font-size: 24px;
             }
@@ -164,7 +164,7 @@ a {
 }
 
 #sb {
-    @media (min-width: $columnsBreakPoint) {
+    @media (min-width: $columns-break-point) {
         position: -webkit-sticky;
         position: sticky;
         top: 1em;
