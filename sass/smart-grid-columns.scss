@@ -3,30 +3,30 @@
 @mixin column() {
     float: left;
     margin: 0 0 0 $gutter;
-    width: $onecol;
+    width: $one-column;
     &:first-child {
         margin-left: 0;
     }
-    @if $flexbox_support == true {
+    @if $flexbox-support == true {
         html.flexbox &  {
             float: none;
         }
     }
 }
 @mixin columns($count:1) {
-    width: ($onecol * $count) + ($gutter * ($count - 1));
+    width: ($one-column * $count) + ($gutter * ($count - 1));
 }
 @mixin offset($columns:1) {
-    margin-left: ($onecol * $columns) + ($gutter * ($columns + 1));
+    margin-left: ($one-column * $columns) + ($gutter * ($columns + 1));
     &:first-child {
-        margin-left: ($onecol * $columns) + ($gutter * $columns);
+        margin-left: ($one-column * $columns) + ($gutter * $columns);
     }
 }
 
 @mixin column-set() {
     .columns {
         @include column;
-        @each $i in $columnList {
+        @each $i in $column-list {
             $selectors: ();
             @for $j from 2 to length($i) + 1 {
                 $selectors: $selectors, unquote("&.#{nth($i, $j)}");
@@ -35,7 +35,7 @@
                 @include columns(nth($i, 1));
             }
         }
-        @each $i in $offsetList {
+        @each $i in $offset-list {
             $selectors: ();
             @for $j from 2 to length($i) + 1 {
                 $selectors: $selectors, unquote("&.offset-#{nth($i, $j)}");

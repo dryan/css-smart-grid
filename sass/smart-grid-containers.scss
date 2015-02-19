@@ -3,7 +3,7 @@
 
 @mixin flexbox_row() {
     html.flexbox & {
-        @media (min-width:$columnsBreakPoint) {
+        @media (min-width:$columns-break-point) {
             display:    -moz-flex;
             display:     -ms-flex; // one day, maybe
             display:     -ms-flexbox;
@@ -20,7 +20,7 @@
 }
 
 @mixin container() {
-    max-width: $containerMaxWidth;
+    max-width: $container-max-width;
     padding: 0 $gutter/2;
     margin: 0 auto;
 }

@@ -1,5 +1,5 @@
 @import "smart-grid-variables";
-$flexbox_support: false;
+$flexbox-support: false;
 @import "smart-grid-containers";
 @import "smart-grid-columns";
 
@@ -12,13 +12,13 @@ $flexbox_support: false;
     @include clearfix;
 }
 
-@if $flexbox_support == true {
+@if $flexbox-support == true {
 	.row {
 		@include flexbox_row;
 	}
 }
 
-@media (min-width:$columnsBreakPoint) {
+@media (min-width:$columns-break-point) {
     @include column-set;
 }
 
