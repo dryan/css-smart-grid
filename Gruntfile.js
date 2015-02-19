@@ -9,7 +9,6 @@ module.exports  =   function(grunt) {
                 }
             },
             options: {
-                sourcemap: true,
                 style: 'compressed',
                 banner: '/*! <%= pkg.name %> <%= pkg.version %> | <%= pkg.license %> | <%= pkg.homepage %> */'
             }
