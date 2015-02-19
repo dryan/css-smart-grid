@@ -1,7 +1,7 @@
 @import "smart-grid-variables";
 @import "smart-grid-mixins";
 
-@mixin flexbox_row() {
+@mixin flexbox-row() {
     html.flexbox & {
         @media (min-width:$columns-break-point) {
             display:    -moz-flex;

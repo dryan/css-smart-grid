@@ -13,7 +13,7 @@
 
 @if $flexbox-support == true {
 	.row {
-		@include flexbox_row;
+		@include flexbox-row;
 	}
 }
 
