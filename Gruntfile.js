@@ -13,7 +13,6 @@ module.exports  =   function(grunt) {
                 loadPath: [
                     'bower_components/bourbon/dist'
                 ],
-                sourcemap: true,
                 style: 'compressed'
             }
         },
