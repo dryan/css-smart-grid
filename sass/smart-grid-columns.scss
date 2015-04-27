@@ -29,7 +29,7 @@
         @each $i in $column-list {
             $selectors: ();
             @for $j from 2 to length($i) + 1 {
-                $selectors: $selectors, unquote("&.#{nth($i, $j)}");
+                $selectors: append($selectors, unquote("&.#{nth($i, $j)}", comma);
             }
             #{$selectors} {
                 @include columns(nth($i, 1));
@@ -38,7 +38,7 @@
         @each $i in $offset-list {
             $selectors: ();
             @for $j from 2 to length($i) + 1 {
-                $selectors: $selectors, unquote("&.offset-#{nth($i, $j)}");
+                $selectors: append($selectors, unquote("&.offset-#{nth($i, $j)}");
             }
             #{$selectors} {
                 @include offset(nth($i, 1));
