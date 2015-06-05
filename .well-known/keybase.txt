@@ -4,11 +4,11 @@ https://keybase.io/dryan
 
 I hereby claim:
 
-  * I am an admin of http://css.gd
+  * I am an admin of https://css.gd
   * I am dryan (https://keybase.io/dryan) on keybase.
   * I have a public key with fingerprint 7E76 E4D1 C6A2 B6FD 8D5E  251E 0B1C D282 DD21 7A08
 
-To claim this, I am signing this object:
+To do so, I am signing this object:
 
 {
     "body": {
@@ -16,45 +16,53 @@ To claim this, I am signing this object:
             "fingerprint": "7e76e4d1c6a2b6fd8d5e251e0b1cd282dd217a08",
             "host": "keybase.io",
             "key_id": "0b1cd282dd217a08",
+            "kid": "0101a8ef8864679e27d159e587b80a3342cf6f90f97652b649e992b41c51ec37aa320a",
             "uid": "319be935d854080c75c29cefd3c55c00",
             "username": "dryan"
         },
+        "revoke": {
+            "sig_ids": [
+                "b9057209d9dce146f023a96752932252acc3e84e6a1a33bf78e48f1d70d6790c0f"
+            ]
+        },
         "service": {
             "hostname": "css.gd",
-            "protocol": "http:"
+            "protocol": "https:"
         },
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1395942275,
+    "ctime": 1433545233,
     "expire_in": 157680000,
-    "prev": "872e3f55a4157d4e722d92ea81206347c2cb0fddec516cc6b6c3b0b93a6ac868",
-    "seqno": 21,
+    "prev": "43d337999ad416368407cae3baf9dc3782256b420a6724313fb925aba3c1b2a8",
+    "seqno": 55,
     "tag": "signature"
 }
 
-with the aforementioned key, yielding the PGP signature:
+which yields the signature:
 
 -----BEGIN PGP MESSAGE-----
-Version: Keybase OpenPGP v0.1.1
-Comment: https://keybase.io/crypto
+Version: GnuPG v1
+Comment: GPGTools - https://gpgtools.org
 
-yMHuAnicbZFbSFxHGMdXowY30SYhtJAHxZMqBJb1XHbOZfsgTcHY2uBDvKRtYD1n
-ZnY9cXPO7jm7q5vVKIpYvC3btA/10kgCpaDEJVWyhZRobYpUg11QIyYlgglUGtAg
-SF8SnSP2LfMyzP/7/f/fzHy/5x2x2TMSscSwv7ghN2N+ejNsu+SCnTFK0VGUcseo
-RnyweVXNh42AoWohyk0JWOCxCzGQl1mF9yIRAcwCBtMKAxErsgixjCDTIuWgGnTT
-cpAYRTaxU9WJRg4eFRH1HXz4oMAxkoIlDiARuGiRhgKArASxF3EQAEjTFmhiQ5Ov
-YUIjIyprVKuDIlJEhUSKHfQ9LEPTdPoQsQQMPaRD3U+0hlAo4LYsoWjAYpqw4jl0
-exRVQ+S5xBDBhqnqGuVmCAlDqhXHcBKQXCwrAAeFmwOqgT2qRQCBF2myrDY4QiJF
-gcWcFwDZRWrIhQWWRRKLZZFhaZ5zCZCFCu1FCEPA8BDyCg85hVYkTuZlKPLWZ5g4
-qOmUm2XIPWUfyTRVnyaHwgamWn+bvpJly7DbcrIzrYnZ7Lkn/p/j+NOje5Wd4rG2
-l1vle3OjK0s3vnQkp652X6/+eqC9wPaJs2zl8/aRkVvvvUjiEufYo5JkX0eTnPoP
-lfTV3j8Z/tWYbNma2C6brSkNpn/w/1xxJyf7x+ZZtDjFD6rfbXIdD0FiKjX54amP
-lKKa3q5kAfxpOXH6AdNUsHNvNN7f4+35p1v+fuZ5qvfZrvRH/urb1DdFRavVnxYP
-aK/Kz4D18MQHG+n6zMjNTT/9pPLbueNV7xeC9Nm8+fyqunPjQ/Hhpb9Wb59f66+r
-X7i7li5d+SW6SL3erSgM2meWu/6k4htZF1oC/wb17cvxRuOLvYXGNhRx/v344/XR
-r7IGxz5Tat8MXdzZBwfsE4E=
-=GzwQ
+owFtUltsVUUUvQVs04uIfiBWStRJgIQUMs8zZy7h8WPQxmhMo8EolHmd25PWew7n
+3F64bQomkJBKCW1siVos8OOjkPgIAeRhbKD6gYYQaVKi6Qc+qyIfVX8EcU7FP+dn
+MnvWXnutvXf/grm5fM1A98ChjmVt9TWXplXuuWRlYzdQkamCQjdot7NXEJaKNomT
+sFQGBcAt9yw1SHsSKy8wvmEWM2ShQtpgHxuDEZfQB02gLUqzDEejZGpXh5GLuUdr
+aFz0f/Dt/34giKRvA9/3qMeFxdwgJizzufKhJIRiHXiBgIHgHnMSqLBCYEWRdio0
+4VISDKWj65ylI0goKwgzPqPQh5ozjYW2gSGaMQ1hBkxtUpIvW4c2SVWWQE8TSGwl
+areZ/TQsOsUpKLwIlICMYyiMMNoi6gUQEyk8zrAgGDMstSbWp9aTyAlVAfct9QNk
+ODTOCdQwAJsdtytXCfUsedaiu6V1mq4uGicnTqJypKMOF2srl+O0kOkpV+MMtN2q
+1rvprSosGTcal1GxSRpGJVBADqnLYcaHKCGMMkxIE7A74jCxrWGGYNzzoTtZHVtx
+lJQYQrgQQj5vKPKI51PItbREycD5JNx31jxFXVM9jilBJFACM6kk0UhhmU0utdtK
+ESgw5oTKoiN1TSvJcmdiQU++t6ZxXq4mn6u9Z062X7l8/f3/LV1jZ93fhb6/zj0y
+3a7TFSsWjTc/NVgd2Xhl69D5b5a3XFpzcP/eia4bR9Y/dnbpS0su/nY8/rpv7eMT
+Nw98dfiz4XXbT21o2P3knni+vDFzbJ++2jFn9449v9/7yasf9Y/3Pzy4dvjLbyef
+uLg/mPvpwWv1T3fX0YW/9Fz2rnb9sDh/AQzPn5m68+wb1wbfGY33vTn545VFO89M
+NYwVD3/RK1p4+OjI2Cj+89Di010j6+LXXmmobb49sWTqp12jB8z594++8GHxvvGH
+3nobfPdrbbXl57Fyk7lsPl9V+ePBW2de76tbsGzrhcFd2x549/r1Yx9Mbtw5vbwu
+PDnR/3HvlrP1M+8NfX/zmU1w4UDzwJETpzuH1vwD
+=GyY0
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
@@ -63,4 +71,3 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/dryan
 
 ==================================================================
-
